@@ -1,4 +1,4 @@
-package net.skullian.binarysearchinator;
+package skullian.binarysearchinator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
