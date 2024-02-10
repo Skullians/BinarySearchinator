@@ -1,6 +1,6 @@
 package skullian.binarysearchinator;
 
 
-public class HelloController {
+public class SearchinatorController {
 
 }
