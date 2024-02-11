@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.SearchinatorController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.SearchinatorController">
    <children>
-      <BorderPane prefHeight="554.0" prefWidth="974.0">
+      <BorderPane fx:id="borderPane" prefHeight="554.0" prefWidth="974.0">
          <left>
             <VBox prefHeight="554.0" prefWidth="230.0" style="-fx-background-color: #282828;" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="button" fx:id="btnGetStarted" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="Get Started">
+                  <Button id="button" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchToMenu" prefHeight="30.0" prefWidth="238.0" styleClass="selected" stylesheets="@css/menu.css" text="Get Started">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -31,7 +32,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="button1" fx:id="btnAbout" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToAbout" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="About">
+                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#switchToAbout" prefHeight="30.0" prefWidth="238.0" style="-fx-text-fill: #FFFFFF; -fx-background-radius: 0em; -fx-background-color: #282828;" stylesheets="@css/menu.css" text="About">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -46,7 +47,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="button" fx:id="btnHelp" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="Help">
+                  <Button id="button" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="Help">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -61,13 +62,26 @@
                         </ImageView>
                      </graphic>
                   </Button>
-               </children></VBox>
+               </children>
+            </VBox>
          </left>
          <center>
             <VBox prefHeight="554.0" prefWidth="198.0" style="-fx-background-color: #1E1E1E;" stylesheets="@css/menu.css" BorderPane.alignment="CENTER" />
          </center>
          <right>
-            <Pane prefHeight="554.0" prefWidth="753.0" style="-fx-background-color: #1E1E1E;" stylesheets="@css/menu.css" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="554.0" prefWidth="753.0" style="-fx-background-color: #1E1E1E;" stylesheets="@css/menu.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="282.0" layoutY="14.0" prefHeight="61.0" prefWidth="190.0" text="Welcome" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="38.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="308.0" layoutY="57.0" prefHeight="36.0" prefWidth="137.0" text="Binary Searchinator" textFill="#aeaeae">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
          </right>
       </BorderPane>
    </children>
