@@ -1,21 +1,12 @@
 package skullian.binarysearchinator;
 
-import org.yaml.snakeyaml.Yaml;
-import skullian.binarysearchinator.jar.Extractor;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import java.util.logging.Logger;
 
 public class MainApp {
+    public static Logger LOGGER = Logger.getLogger("BinarySearchinator");
     public static void main(String[] args) {
-        /*try {
-            System.out.println(Extractor.extractYML("", ""));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
+        LOGGER.info("Welcome to BinarySearchinator. Initialising SearchinatorApp.");
         SearchinatorApp.main(args);
     }
 }

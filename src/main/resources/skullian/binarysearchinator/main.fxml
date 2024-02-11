@@ -47,7 +47,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="button" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="Help">
+                  <Button id="button" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#switchToHelp" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="Help">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
