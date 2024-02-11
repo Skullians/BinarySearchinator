@@ -165,17 +165,8 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <relocations>
-                                <relocation>
-                                    <pattern>javafx.*</pattern>
-                                    <shadedPattern>net.skullian.binarysearchinator.javafx</shadedPattern>
-                                </relocation>
-                            </relocations>
                             <artifactSet>
                                 <includes>javafx:*</includes>
-                                <excludes>
-
-                                </excludes>
                             </artifactSet>
                         </configuration>
                     </execution>
