@@ -50,6 +50,10 @@ You can then either open the jarfile via:
 `java -jar path/to/BinarySearchinator.jar`
 Follow the instructions on the window that then appears.
 
+## Roadmap
+
+See **[Planned Features](https://github.com/users/Skullians/projects/3)** for this project's Roadmap.
+
 ## License
 
 Distributed under the Apache-2.0 License. See **[License](https://github.com/Skullians/BinarySearchinator/blob/main/LICENSE)** for more information.
