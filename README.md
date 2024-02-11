@@ -25,7 +25,9 @@ Binary Searchinator is a tool dedicated towards simplifying the task of binary s
 
 Binary Searching is a complicated and often lengthy process when done by hand. Although it is one of the fastest methods of identifying problems on your server, this process can become **very extensive** in modded applications when you have 100+ mods on your server.
 
-This is where 
+This is where Binary Searchinator comes in. It relieves the majority of the burden concerning Binary Searching, including:
+* Identifying Dependencies + Management
+* Disabling Mods / Plugins
 
 ## Built With
 
