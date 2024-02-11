@@ -166,7 +166,9 @@
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <artifactSet>
-                                <includes>javafx:*</includes>
+                                <includes>
+                                    <include>org.openjfx:*</include>
+                                </includes>
                             </artifactSet>
                         </configuration>
                     </execution>
