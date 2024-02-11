@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.SearchinatorController">
    <children>
       <BorderPane prefHeight="554.0" prefWidth="974.0">
          <left>
             <VBox prefHeight="554.0" prefWidth="230.0" style="-fx-background-color: #282828;" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="button" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="Get Started">
+                  <Button id="button" fx:id="btnGetStarted" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="Get Started">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -26,12 +26,12 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/Home.png" />
+                              <Image url="@img/home.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="button" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="About">
+                  <Button id="button1" fx:id="btnAbout" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToAbout" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="About">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -46,7 +46,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="button" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="Help">
+                  <Button id="button" fx:id="btnHelp" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" stylesheets="@css/menu.css" text="Help">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -67,7 +67,7 @@
             <VBox prefHeight="554.0" prefWidth="198.0" style="-fx-background-color: #1E1E1E;" stylesheets="@css/menu.css" BorderPane.alignment="CENTER" />
          </center>
          <right>
-            <Pane prefHeight="554.0" prefWidth="545.0" style="-fx-background-color: #1E1E1E;" stylesheets="@css/menu.css" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="554.0" prefWidth="753.0" style="-fx-background-color: #1E1E1E;" stylesheets="@css/menu.css" BorderPane.alignment="CENTER" />
          </right>
       </BorderPane>
    </children>

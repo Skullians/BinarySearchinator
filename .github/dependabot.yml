@@ -9,6 +9,8 @@ updates:
       maven-plugin:
         patterns:
           - "org.apache.maven.plugins:*"
+          - "org.openjfk:*"
+          - "org.yaml:*"
     open-pull-requests-limit: 5
 
   - package-ecosystem: "github-actions"

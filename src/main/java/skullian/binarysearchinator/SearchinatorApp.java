@@ -15,7 +15,6 @@ public class SearchinatorApp extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
         stage.setScene(new Scene(root));
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("Binary Searchinator");
 
         root.setOnMousePressed(event -> {
