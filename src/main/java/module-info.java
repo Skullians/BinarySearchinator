@@ -11,6 +11,4 @@ module skullian.binarysearchinator {
 
     opens skullian.binarysearchinator to javafx.fxml;
     exports skullian.binarysearchinator;
-
-
 }

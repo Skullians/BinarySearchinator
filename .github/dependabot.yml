@@ -9,7 +9,11 @@ updates:
       maven-plugin:
         patterns:
           - "org.apache.maven.plugins:*"
-          - "org.openjfk:*"
+      jfx:
+        patterns:
+         - "org.openjfx:*"
+      yaml:
+        patterns:
           - "org.yaml:*"
     open-pull-requests-limit: 5
 

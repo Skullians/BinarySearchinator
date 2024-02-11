@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Logger;
 
 public class SearchinatorApp extends Application {
@@ -17,7 +18,8 @@ public class SearchinatorApp extends Application {
     public void start(Stage stage) throws IOException {
         LOGGER.info("Loading main.fxml");
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        Image image = new Image("https://raw.githubusercontent.com/Skullians/BinarySearchinator/main/icon.jpg");
+
+        Image image = new Image(String.valueOf(getClass().getResource("img/icon.jpg")));
 
         stage.getIcons().add(image);
         stage.setScene(new Scene(root));
