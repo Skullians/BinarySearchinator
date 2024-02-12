@@ -1,29 +1,35 @@
-package skullian.binarysearchinator;
+package skullian.binarysearchinator.control;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.web.WebView;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
+import skullian.binarysearchinator.MainApp;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class SearchinatorController implements Initializable {
+public class SidebarController implements Initializable {
     private static Logger LOGGER = MainApp.LOGGER;
 
     @FXML
     private BorderPane borderPane;
+
+    @FXML
+    private TextField dirField;
 
     @FXML
     private void issues_hyperlink(ActionEvent event) {
@@ -54,10 +60,25 @@ public class SearchinatorController implements Initializable {
     void switchToHelp(MouseEvent event) {
         loadPage("help");
     }
+
+    @FXML
+    void promptDirChoice(MouseEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+
+        DirectoryChooser chooser = new DirectoryChooser();
+        chooser.setTitle("Select Folder Path");
+        chooser.setInitialDirectory(new File("C:\\"));
+        File directory = chooser.showDialog(stage);
+        if (directory != null) {
+            dirField.setText(directory.toString());
+        }
+    }
+
     private void loadPage(String page) {
         try {
-            Parent root = null;
-            root = FXMLLoader.load(getClass().getResource("fxml/" + page + ".fxml"));
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/skullian/binarysearchinator/fxml/" + page + ".fxml"));
             borderPane.getChildren().removeAll();
             borderPane.getChildren().setAll(root);
         } catch (Exception error) {

@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.SearchinatorController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.control.SidebarController">
    <children>
       <BorderPane fx:id="borderPane" prefHeight="554.0" prefWidth="974.0">
          <left>
@@ -81,6 +82,27 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
+                  <Label alignment="TOP_CENTER" layoutX="80.0" layoutY="93.0" prefHeight="53.0" prefWidth="594.0" text="Welcome to Binary Searchinator!&#10;To get started, first specify the path to your server's plugin or mod folder.&#10;&#10;&#10;&#10;" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="dirField" layoutX="162.0" layoutY="206.0" prefHeight="30.0" prefWidth="429.0" promptText="Plugin / Mod Folder Path" style="-fx-background-color: #4d4d4d; -fx-text-fill: #FFFFFF;" />
+                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="598.0" layoutY="206.0" mnemonicParsing="false" onMouseClicked="#promptDirChoice" prefHeight="30.0" prefWidth="11.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 0.2em; -fx-background-color: #4d4d4d;" stylesheets="@../css/menu.css">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #4d4d4d;" y="206.0">
+                           <image>
+                              <Image url="@../img/folder.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children></Pane>
          </right>
       </BorderPane>

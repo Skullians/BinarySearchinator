@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.SearchinatorController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.control.SidebarController">
    <children>
       <BorderPane fx:id="borderPane" prefHeight="554.0" prefWidth="974.0">
          <left>
@@ -103,12 +103,12 @@
                      </font>
                   </Label>
                   <Label alignment="TOP_LEFT" layoutX="23.0" layoutY="156.0" prefHeight="89.0" prefWidth="594.0" text="If the search tool is not finding any of your plugins or mods, check that you specified the&#10;correct path to your plugins / mods folder. Example:&#10;&quot;C:/Users/user/Downloads/Server/plugins/&quot;&#10;If you don't have any luck with this, make an issue on our GitHub." textFill="WHITE" />
-                  <Label alignment="CENTER_RIGHT" layoutX="148.0" layoutY="245.0" prefHeight="3.0" prefWidth="594.0" text="How do I use this tool?" textAlignment="CENTER" textFill="WHITE">
+                  <Label layoutX="26.0" layoutY="245.0" prefHeight="3.0" prefWidth="594.0" text="How do I use this tool?" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" layoutX="442.0" layoutY="270.0" prefHeight="39.0" prefWidth="300.0" text="Head to the Get Started section of this tool.&#10;You will be guided step by step throughout the process." textAlignment="RIGHT" textFill="WHITE" />
+                  <Label alignment="CENTER_RIGHT" layoutX="23.0" layoutY="270.0" prefHeight="39.0" prefWidth="300.0" text="Head to the Get Started section of this tool.&#10;You will be guided step by step throughout the process." textFill="WHITE" />
                </children></Pane>
          </right>
       </BorderPane>
