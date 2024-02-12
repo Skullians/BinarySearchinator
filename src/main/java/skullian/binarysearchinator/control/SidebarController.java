@@ -24,10 +24,10 @@ import java.util.logging.Logger;
 
 public class SidebarController implements Initializable {
     private static Logger LOGGER = MainApp.LOGGER;
+    private ErrorHandler errorHandler = new ErrorHandler();
 
     @FXML
     private BorderPane borderPane;
-
     @FXML
     private TextField dirField;
 
@@ -36,8 +36,10 @@ public class SidebarController implements Initializable {
         Desktop desktop = Desktop.getDesktop();
         try {
             desktop.browse(java.net.URI.create("https://github.com/Skullians/BinarySearchinator/issues"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException error) {
+            errorHandler.setErrorMessage(borderPane);
+            LOGGER.severe("An error occured when trying to display a URL. Please report this to https://github.com/Skullians/BinarySearchinator/issues.");
+            LOGGER.severe(Arrays.toString(error.getStackTrace()));
         }
     }
 
@@ -47,9 +49,7 @@ public class SidebarController implements Initializable {
     }
 
     @FXML
-    void switchToAbout(MouseEvent event) {
-        loadPage("about");
-    }
+    void switchToAbout(MouseEvent event) { loadPage("about"); }
 
     @FXML
     void switchToMenu(MouseEvent event) {
@@ -82,7 +82,8 @@ public class SidebarController implements Initializable {
             borderPane.getChildren().removeAll();
             borderPane.getChildren().setAll(root);
         } catch (Exception error) {
-            LOGGER.severe("An error occured when trying to change to page [" + page + ".fxml. Please report this to https://github.com/Skullians/BinarySearchinator/issues.");
+            errorHandler.setErrorMessage(borderPane);
+            LOGGER.severe("An error occured when trying to change to page [" + page + ".fxml]. Please report this to https://github.com/Skullians/BinarySearchinator/issues.");
             LOGGER.severe(Arrays.toString(error.getStackTrace()));
         }
     }

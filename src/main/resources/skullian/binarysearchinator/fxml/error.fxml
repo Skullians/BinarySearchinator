@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.control.ErrorHandler">
+   <children>
+      <BorderPane fx:id="borderPane" prefHeight="554.0" prefWidth="974.0">
+         <center>
+            <Pane prefHeight="554.0" prefWidth="974.0" style="-fx-background-color: #1E1E1E;" stylesheets="@../css/menu.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="392.0" layoutY="7.0" prefHeight="61.0" prefWidth="190.0" text="Oops!" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="38.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="419.0" layoutY="50.0" prefHeight="36.0" prefWidth="137.0" text="Binary Searchinator" textFill="#aeaeae">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="204.0" layoutY="141.0" prefHeight="61.0" prefWidth="567.0" text="Something went wrong." textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="issues_hyperlink" alignment="CENTER" layoutX="339.0" layoutY="191.0" onAction="#issues_hyperlink" prefHeight="23.0" prefWidth="296.0" text="Please make an issue here with the following error." textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Hyperlink>
+                  <TextField fx:id="errorField" alignment="TOP_CENTER" editable="false" layoutX="74.0" layoutY="214.0" prefHeight="220.0" prefWidth="827.0" style="-fx-background-color: #1E1E1E; -fx-text-fill: #FFFFFF;" text="[PLACEHOLDER] If you're seeing this, definitely make an issue. [PLACEHOLDER]">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
+               </children></Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
