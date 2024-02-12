@@ -57,7 +57,7 @@ public class SearchinatorController implements Initializable {
     private void loadPage(String page) {
         try {
             Parent root = null;
-            root = FXMLLoader.load(getClass().getResource(page + ".fxml"));
+            root = FXMLLoader.load(getClass().getResource("fxml/" + page + ".fxml"));
             borderPane.getChildren().removeAll();
             borderPane.getChildren().setAll(root);
         } catch (Exception error) {

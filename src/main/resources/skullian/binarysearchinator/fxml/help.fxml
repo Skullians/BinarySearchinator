@@ -18,7 +18,7 @@
          <left>
             <VBox prefHeight="554.0" prefWidth="230.0" style="-fx-background-color: #282828;" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="button" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchToMenu" prefHeight="30.0" prefWidth="238.0" style="-fx-background-color: #282828; -fx-text-fill: #FFFFFF; -fx-background-radius: 0em;" stylesheets="@css/menu.css" text="Get Started">
+                  <Button id="button" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchToMenu" prefHeight="30.0" prefWidth="238.0" style="-fx-background-color: #282828; -fx-text-fill: #FFFFFF; -fx-background-radius: 0em;" stylesheets="@../css/menu.css" text="Get Started">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -28,12 +28,12 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/home.png" />
+                              <Image url="@../img/home.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#switchToAbout" prefHeight="30.0" prefWidth="238.0" style="-fx-background-color: #282828; -fx-text-fill: #FFFFFF; -fx-background-radius: 0em;" stylesheets="@css/menu.css" text="About">
+                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#switchToAbout" prefHeight="30.0" prefWidth="238.0" style="-fx-background-color: #282828; -fx-text-fill: #FFFFFF; -fx-background-radius: 0em;" stylesheets="@../css/menu.css" text="About">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -43,12 +43,12 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/Info.png" />
+                              <Image url="@../img/Info.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="button" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#switchToHelp" prefHeight="30.0" prefWidth="238.0" styleClass="selected" stylesheets="@css/menu.css" text="Help">
+                  <Button id="button" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#switchToHelp" prefHeight="30.0" prefWidth="238.0" styleClass="selected" stylesheets="@../css/menu.css" text="Help">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -58,7 +58,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/help.png" />
+                              <Image url="@../img/help.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -67,10 +67,10 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="554.0" prefWidth="198.0" style="-fx-background-color: #1E1E1E;" stylesheets="@css/menu.css" BorderPane.alignment="CENTER" />
+            <VBox prefHeight="554.0" prefWidth="198.0" style="-fx-background-color: #1E1E1E;" stylesheets="@../css/menu.css" BorderPane.alignment="CENTER" />
          </center>
          <right>
-            <Pane prefHeight="554.0" prefWidth="753.0" style="-fx-background-color: #1E1E1E;" stylesheets="@css/menu.css" BorderPane.alignment="CENTER">
+            <Pane prefHeight="554.0" prefWidth="753.0" style="-fx-background-color: #1E1E1E;" stylesheets="@../css/menu.css" BorderPane.alignment="CENTER">
                <children>
                   <Label alignment="CENTER" layoutX="302.0" layoutY="14.0" prefHeight="61.0" prefWidth="150.0" text="Help" textAlignment="CENTER" textFill="WHITE">
                      <font>
@@ -103,6 +103,12 @@
                      </font>
                   </Label>
                   <Label alignment="TOP_LEFT" layoutX="23.0" layoutY="156.0" prefHeight="89.0" prefWidth="594.0" text="If the search tool is not finding any of your plugins or mods, check that you specified the&#10;correct path to your plugins / mods folder. Example:&#10;&quot;C:/Users/user/Downloads/Server/plugins/&quot;&#10;If you don't have any luck with this, make an issue on our GitHub." textFill="WHITE" />
+                  <Label alignment="CENTER_RIGHT" layoutX="148.0" layoutY="245.0" prefHeight="3.0" prefWidth="594.0" text="How do I use this tool?" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="442.0" layoutY="270.0" prefHeight="39.0" prefWidth="300.0" text="Head to the Get Started section of this tool.&#10;You will be guided step by step throughout the process." textAlignment="RIGHT" textFill="WHITE" />
                </children></Pane>
          </right>
       </BorderPane>

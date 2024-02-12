@@ -17,7 +17,7 @@ public class SearchinatorApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         LOGGER.info("Loading main.fxml");
-        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/main.fxml"));
 
         Image image = new Image(String.valueOf(getClass().getResource("img/icon.jpg")));
 
