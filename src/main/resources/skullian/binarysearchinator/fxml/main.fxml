@@ -72,12 +72,12 @@
          <right>
             <Pane prefHeight="554.0" prefWidth="753.0" style="-fx-background-color: #1E1E1E;" stylesheets="@../css/menu.css" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="282.0" layoutY="14.0" prefHeight="61.0" prefWidth="190.0" text="Welcome" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="283.0" layoutY="14.0" prefHeight="61.0" prefWidth="190.0" text="Welcome" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="38.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="308.0" layoutY="57.0" prefHeight="36.0" prefWidth="137.0" text="Binary Searchinator" textFill="#aeaeae">
+                  <Label alignment="CENTER" layoutX="309.0" layoutY="57.0" prefHeight="36.0" prefWidth="137.0" text="Binary Searchinator" textFill="#aeaeae">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -103,6 +103,127 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="339.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#switchToAbout" prefHeight="30.0" prefWidth="75.0" style="-fx-text-fill: #FFFFFF; -fx-background-radius: 0.2em; -fx-background-color: #282828;" stylesheets="@../css/menu.css" text="Start">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/done.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="162.0" layoutY="186.0" prefHeight="15.0" prefWidth="137.0" text="Plugin / Mod Folder" textFill="#aeaeae" />
+                  <TextField fx:id="tempField" layoutX="162.0" layoutY="272.0" prefHeight="30.0" prefWidth="429.0" promptText="Temporary Folder Path (Optional)" style="-fx-background-color: #4d4d4d; -fx-text-fill: #FFFFFF;" />
+                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="598.0" layoutY="271.0" mnemonicParsing="false" onMouseClicked="#promptTempChoice" prefHeight="30.0" prefWidth="11.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 0.2em; -fx-background-color: #4d4d4d;" stylesheets="@../css/menu.css">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #4d4d4d;" y="206.0">
+                           <image>
+                              <Image url="@../img/folder.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="162.0" layoutY="252.0" prefHeight="15.0" prefWidth="137.0" text="Temporary Folder" textFill="#aeaeae" />
+                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="125.0" layoutY="271.0" mnemonicParsing="false" onMouseClicked="#openTempDirInformation" prefHeight="30.0" prefWidth="11.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 0.2em; -fx-background-color: #4d4d4d;" stylesheets="@../css/menu.css">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #4d4d4d;" y="206.0">
+                           <image>
+                              <Image url="@../img/Info.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="124.0" layoutY="206.0" mnemonicParsing="false" onMouseClicked="#openJarDirInformation" prefHeight="30.0" prefWidth="11.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 0.2em; -fx-background-color: #4d4d4d;" stylesheets="@../css/menu.css">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #4d4d4d;" y="206.0">
+                           <image>
+                              <Image url="@../img/Info.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Pane fx:id="jarPathInformationPane" disable="true" layoutX="121.0" layoutY="182.0" opacity="0.0" prefHeight="173.0" prefWidth="512.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 2em;">
+                     <children>
+                        <Button id="button1" alignment="BASELINE_LEFT" layoutX="473.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#closeJarDirInformation" prefHeight="30.0" prefWidth="24.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 1em; -fx-background-color: #1E1E1E;" stylesheets="@../css/menu.css">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #4d4d4d; -fx-background-radius: 1em;" y="206.0">
+                                 <image>
+                                    <Image url="@../img/close.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="162.0" layoutY="12.0" prefHeight="17.0" prefWidth="189.0" text="Plugin / Mod Folder Path" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_CENTER" layoutX="17.0" layoutY="35.0" prefHeight="123.0" prefWidth="480.0" text="This is where your plugins or mods would be located.&#10;For example, on a Fabric server, it would be the &quot;mods&quot; &#10;folder in your server.&#10;On a Paper server, it would be the &quot;plugins&quot; folder.&#10;Example: &quot;C:\Users\user\Downloads\Server\mods&quot;" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="tempPathInformationFrame" disable="true" layoutX="121.0" layoutY="182.0" opacity="0.0" prefHeight="173.0" prefWidth="512.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 2em;">
+                     <children>
+                        <Button id="button1" alignment="BASELINE_LEFT" layoutX="473.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#closeTempDirInformation" prefHeight="30.0" prefWidth="24.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 1em; -fx-background-color: #1E1E1E;" stylesheets="@../css/menu.css">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #4d4d4d; -fx-background-radius: 1em;" y="206.0">
+                                 <image>
+                                    <Image url="@../img/close.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="162.0" layoutY="12.0" prefHeight="17.0" prefWidth="189.0" text="Temporary Folder Path" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_CENTER" layoutX="17.0" layoutY="35.0" prefHeight="123.0" prefWidth="480.0" text="This is where any temporary files such as disabled plugins / mods.&#10;You shouldn't have to edit this, its default is a &quot;.temp&quot; folder inside&#10;the Plugin / Mods folder you specified above." textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                </children></Pane>
          </right>
       </BorderPane>

@@ -5,11 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.logging.Logger;
 
 public class SearchinatorApp extends Application {
@@ -17,7 +15,7 @@ public class SearchinatorApp extends Application {
     private static Logger LOGGER = MainApp.LOGGER;
     @Override
     public void start(Stage stage) throws IOException {
-        LOGGER.info("Loading main.fxml");
+        LOGGER.info("Loading searching.fxml");
         Parent root = FXMLLoader.load(getClass().getResource("fxml/main.fxml"));
 
         Image image = new Image(String.valueOf(getClass().getResource("img/icon.jpg")));

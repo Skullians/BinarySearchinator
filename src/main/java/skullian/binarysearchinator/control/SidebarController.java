@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import skullian.binarysearchinator.MainApp;
@@ -30,6 +31,12 @@ public class SidebarController implements Initializable {
     private BorderPane borderPane;
     @FXML
     private TextField dirField;
+    @FXML
+    private TextField tempField;
+    @FXML
+    private Pane jarPathInformationPane;
+    @FXML
+    private Pane tempPathInformationFrame;
 
     @FXML
     private void issues_hyperlink(ActionEvent event) {
@@ -49,7 +56,9 @@ public class SidebarController implements Initializable {
     }
 
     @FXML
-    void switchToAbout(MouseEvent event) { loadPage("about"); }
+    void switchToAbout(MouseEvent event) {
+        loadPage("about");
+    }
 
     @FXML
     void switchToMenu(MouseEvent event) {
@@ -72,8 +81,24 @@ public class SidebarController implements Initializable {
         File directory = chooser.showDialog(stage);
         if (directory != null) {
             dirField.setText(directory.toString());
+            tempField.setText(directory.toString() + "\\.temp");
         }
     }
+
+    @FXML
+    void promptTempChoice(MouseEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+
+        DirectoryChooser chooser = new DirectoryChooser();
+        chooser.setTitle("Select Folder Path");
+        chooser.setInitialDirectory(new File("C:\\"));
+        File directory = chooser.showDialog(stage);
+        if (directory != null) {
+            tempField.setText(directory.toString());
+        }
+    }
+
 
     private void loadPage(String page) {
         try {
@@ -88,4 +113,33 @@ public class SidebarController implements Initializable {
         }
     }
 
+    // --- INFORMATION --- //
+
+    @FXML
+    void openJarDirInformation(MouseEvent event) {
+        tempPathInformationFrame.setOpacity(1);
+        tempPathInformationFrame.setVisible(true);
+        tempPathInformationFrame.setDisable(false);
+    }
+
+    @FXML
+    void openTempDirInformation(MouseEvent event) {
+        tempPathInformationFrame.setOpacity(1);
+        tempPathInformationFrame.setVisible(true);
+        tempPathInformationFrame.setDisable(false);
+    }
+
+    @FXML
+    void closeJarDirInformation(MouseEvent event) {
+        tempPathInformationFrame.setOpacity(0);
+        tempPathInformationFrame.setVisible(false);
+        tempPathInformationFrame.setDisable(true);
+    }
+
+    @FXML
+    void closeTempDirInformation(MouseEvent event) {
+        tempPathInformationFrame.setOpacity(0);
+        tempPathInformationFrame.setVisible(false);
+        tempPathInformationFrame.setDisable(true);
+    }
 }
