@@ -6,7 +6,7 @@
 
     <groupId>skullian</groupId>
     <artifactId>BinarySearchinator</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-BETA</version>
     <name>BinarySearchinator</name>
 
     <properties>
