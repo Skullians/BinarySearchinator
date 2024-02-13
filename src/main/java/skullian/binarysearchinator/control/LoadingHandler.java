@@ -2,16 +2,26 @@ package skullian.binarysearchinator.control;
 
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
+import javafx.scene.Parent;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import skullian.binarysearchinator.MainApp;
+import skullian.binarysearchinator.util.jar.Extractor;
 
-import java.awt.*;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class LoadingHandler implements Initializable {
+    private static Logger LOGGER = MainApp.LOGGER;
+    private ConfirmationHandler confirmationHandler = new ConfirmationHandler();
+
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -19,21 +29,13 @@ public class LoadingHandler implements Initializable {
     @FXML
     private Circle c2;
 
-    // -- confirmation fxml vars -- //
-    @FXML
-    private Button rejectPref;
-    @FXML
-    private Button acceptPref;
-    @FXML
-    private TextField dirField;
-    @FXML
-    private TextField tempField;
-
-    public static String conf = "N/A";
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Extractor.pane = borderPane;
         setRotate(c1, true, 360, 5);
         setRotate(c2, true, 270, 7);
+
+        confirmationHandler.userConfirmation(borderPane);
     }
 
     private void setRotate(Circle c, boolean reverse, int angle, int duration) {

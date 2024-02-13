@@ -60,7 +60,7 @@ public class SidebarController implements Initializable {
             desktop.browse(java.net.URI.create("https://github.com/Skullians/BinarySearchinator/issues"));
         } catch (IOException error) {
             ErrorHandler.error = "An error occured when trying to display a URL: \n" + error;
-            errorHandler.setErrorMessage(borderPane);
+            ErrorHandler.setErrorMessage(borderPane);
             LOGGER.severe("An error occured when trying to display a URL. Please report this to https://github.com/Skullians/BinarySearchinator/issues.");
             LOGGER.severe(Arrays.toString(error.getStackTrace()));
         }
@@ -124,7 +124,7 @@ public class SidebarController implements Initializable {
             borderPane.getChildren().setAll(root);
         } catch (Exception error) {
             ErrorHandler.error = "An error occured when trying to change to page [" + page + ".fxml]: \n" + error;
-            errorHandler.setErrorMessage(borderPane);
+            ErrorHandler.setErrorMessage(borderPane);
             LOGGER.severe("An error occured when trying to change to page [" + page + ".fxml]. Please report this to https://github.com/Skullians/BinarySearchinator/issues.");
             LOGGER.severe(Arrays.toString(error.getStackTrace()));
         }

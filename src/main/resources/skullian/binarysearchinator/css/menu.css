@@ -67,3 +67,131 @@
  -fx-background-color : #165DDB;
  -fx-background-radius :1em;
 }
+
+/* sel */
+
+.neoforged
+{
+ -fx-background-color : #282828;
+ -fx-text-fill: #FFFFFF;
+ -fx-background-radius :0.5em;
+}
+.neoforged:hover
+{
+ -fx-background-color: #6393E7;
+ -fx-background-radius :1em;
+}
+.neoforged:pressed
+{
+ -fx-background-color : #165DDB;
+ -fx-background-radius :1em;
+}
+.neoforged:focused{
+ -fx-background-color: #165DDB;
+ -fx-background-radius :1em;
+}
+
+.forge
+{
+ -fx-background-color : #282828;
+ -fx-text-fill: #FFFFFF;
+ -fx-background-radius :0.5em;
+}
+.forge:hover
+{
+ -fx-background-color: #6393E7;
+ -fx-background-radius :1em;
+}
+.forge:pressed
+{
+ -fx-background-color : #165DDB;
+ -fx-background-radius :1em;
+}
+.forge:focused{
+ -fx-background-color: #165DDB;
+ -fx-background-radius :1em;
+}
+
+.fabric
+{
+ -fx-background-color : #282828;
+ -fx-text-fill: #FFFFFF;
+ -fx-background-radius :0.5em;
+}
+.fabric:hover
+{
+ -fx-background-color: #6393E7;
+ -fx-background-radius :1em;
+}
+.fabric:pressed
+{
+ -fx-background-color : #165DDB;
+ -fx-background-radius :1em;
+}
+.fabric:focused{
+ -fx-background-color: #165DDB;
+ -fx-background-radius :1em;
+}
+
+.quiltmc
+{
+ -fx-background-color : #282828;
+ -fx-text-fill: #FFFFFF;
+ -fx-background-radius :0.5em;
+}
+.quiltmc:hover
+{
+ -fx-background-color: #6393E7;
+ -fx-background-radius :1em;
+}
+.quiltmc:pressed
+{
+ -fx-background-color : #165DDB;
+ -fx-background-radius :1em;
+}
+.quiltmc:focused{
+ -fx-background-color: #165DDB;
+ -fx-background-radius :1em;
+}
+
+.paper
+{
+ -fx-background-color : #282828;
+ -fx-text-fill: #FFFFFF;
+ -fx-background-radius :0.5em;
+}
+.paper:hover
+{
+ -fx-background-color: #6393E7;
+ -fx-background-radius :1em;
+}
+.paper:pressed
+{
+ -fx-background-color : #165DDB;
+ -fx-background-radius :1em;
+}
+.paper:focused{
+ -fx-background-color: #165DDB;
+ -fx-background-radius :1em;
+}
+
+.spigot
+{
+ -fx-background-color : #282828;
+ -fx-text-fill: #FFFFFF;
+ -fx-background-radius :0.5em;
+}
+.spigot:hover
+{
+ -fx-background-color: #6393E7;
+ -fx-background-radius :1em;
+}
+.spigot:pressed
+{
+ -fx-background-color : #165DDB;
+ -fx-background-radius :1em;
+}
+.spigot:focused{
+ -fx-background-color: #165DDB;
+ -fx-background-radius :1em;
+}

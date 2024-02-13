@@ -18,6 +18,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -54,10 +55,9 @@ public class ErrorHandler implements Initializable {
     public static void setErrorMessage(BorderPane pane) {
         try {
             Parent root;
-            root = FXMLLoader.load(ErrorHandler.class.getResource("/skullian/binarysearchinator/fxml/error.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(ErrorHandler.class.getResource("/skullian/binarysearchinator/fxml/error.fxml")));
             pane.getChildren().removeAll();
             pane.getChildren().setAll(root);
-            LOGGER.severe("COPY AND PASTE THE ENTIRE LOG");
         } catch (Exception error){
             LOGGER.severe("An error occured when trying to display the error page [" + error + "]. Please report this to https://github.com/Skullians/BinarySearchinator/issues.");
             LOGGER.severe(Arrays.toString(error.getStackTrace()));
