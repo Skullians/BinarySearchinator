@@ -1,6 +1,5 @@
 package skullian.binarysearchinator;
 
-
 import java.util.logging.Logger;
 
 public class MainApp {

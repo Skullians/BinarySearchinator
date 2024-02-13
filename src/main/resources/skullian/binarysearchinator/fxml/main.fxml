@@ -103,7 +103,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="339.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#switchToAbout" prefHeight="30.0" prefWidth="75.0" style="-fx-text-fill: #FFFFFF; -fx-background-radius: 0.2em; -fx-background-color: #282828;" stylesheets="@../css/menu.css" text="Start">
+                  <Button id="button1" fx:id="contButton" alignment="BASELINE_LEFT" layoutX="339.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#contInit" prefHeight="30.0" prefWidth="75.0" style="-fx-text-fill: #FFFFFF; -fx-background-radius: 0.2em; -fx-background-color: #282828;" stylesheets="@../css/menu.css" text="Start">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>

@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -34,11 +33,11 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Hyperlink>
-                  <TextField fx:id="errorField" alignment="TOP_CENTER" editable="false" layoutX="74.0" layoutY="214.0" prefHeight="220.0" prefWidth="827.0" style="-fx-background-color: #1E1E1E; -fx-text-fill: #FFFFFF;" text="Please check the logs of this tool, by checking command prompt.">
+                  <Label fx:id="errorField" alignment="TOP_CENTER" layoutX="68.0" layoutY="238.0" prefHeight="263.0" prefWidth="840.0" text="PLACEHOLDER ERROR" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font size="17.0" />
                      </font>
-                  </TextField>
+                  </Label>
                </children></Pane>
          </center>
       </BorderPane>

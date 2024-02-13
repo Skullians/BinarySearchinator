@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -28,13 +29,15 @@ public class ErrorHandler implements Initializable {
     @FXML
     private BorderPane borderPane;
     @FXML
-    private TextField errorField;
+    private Label errorField;
     @FXML
     private Hyperlink issues_hyperlink;
 
+    public static String error = "Placeholder Error: If you see this then I've messed up.";
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        errorField.setText(error);
     }
 
     @FXML
@@ -48,7 +51,7 @@ public class ErrorHandler implements Initializable {
         }
     }
 
-    public void setErrorMessage(BorderPane pane) {
+    public static void setErrorMessage(BorderPane pane) {
         try {
             Parent root;
             root = FXMLLoader.load(ErrorHandler.class.getResource("/skullian/binarysearchinator/fxml/error.fxml"));

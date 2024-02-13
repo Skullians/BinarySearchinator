@@ -1,18 +1,26 @@
 package skullian.binarysearchinator.control;
 
 
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import skullian.binarysearchinator.MainApp;
 
 import java.awt.*;
@@ -27,6 +35,9 @@ public class SidebarController implements Initializable {
     private static Logger LOGGER = MainApp.LOGGER;
     private ErrorHandler errorHandler = new ErrorHandler();
 
+    public static String jarDir = null;
+    public static String tempDir = null;
+
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -37,6 +48,10 @@ public class SidebarController implements Initializable {
     private Pane jarPathInformationPane;
     @FXML
     private Pane tempPathInformationFrame;
+    @FXML
+    private Button contButton;
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private void issues_hyperlink(ActionEvent event) {
@@ -44,6 +59,7 @@ public class SidebarController implements Initializable {
         try {
             desktop.browse(java.net.URI.create("https://github.com/Skullians/BinarySearchinator/issues"));
         } catch (IOException error) {
+            ErrorHandler.error = "An error occured when trying to display a URL: \n" + error;
             errorHandler.setErrorMessage(borderPane);
             LOGGER.severe("An error occured when trying to display a URL. Please report this to https://github.com/Skullians/BinarySearchinator/issues.");
             LOGGER.severe(Arrays.toString(error.getStackTrace()));
@@ -107,8 +123,25 @@ public class SidebarController implements Initializable {
             borderPane.getChildren().removeAll();
             borderPane.getChildren().setAll(root);
         } catch (Exception error) {
+            ErrorHandler.error = "An error occured when trying to change to page [" + page + ".fxml]: \n" + error;
             errorHandler.setErrorMessage(borderPane);
             LOGGER.severe("An error occured when trying to change to page [" + page + ".fxml]. Please report this to https://github.com/Skullians/BinarySearchinator/issues.");
+            LOGGER.severe(Arrays.toString(error.getStackTrace()));
+        }
+    }
+
+    @FXML
+    void contInit(MouseEvent event) {
+        try {
+            jarDir = dirField.getText();
+            tempDir = tempField.getText();
+            Parent root = FXMLLoader.load(getClass().getResource("/skullian/binarysearchinator/fxml/binsearch/searching.fxml"));
+            borderPane.getChildren().removeAll();
+            borderPane.getChildren().setAll(root);
+        } catch (Exception error) {
+            ErrorHandler.error = "An error occured when trying to transition to Page [binsearch/searching.fxml]: \n" + error;
+            errorHandler.setErrorMessage(borderPane);
+            LOGGER.severe("An error occured when trying to transition to Page [binsearch/searching.fxml]: " + error);
             LOGGER.severe(Arrays.toString(error.getStackTrace()));
         }
     }
@@ -117,9 +150,9 @@ public class SidebarController implements Initializable {
 
     @FXML
     void openJarDirInformation(MouseEvent event) {
-        tempPathInformationFrame.setOpacity(1);
-        tempPathInformationFrame.setVisible(true);
-        tempPathInformationFrame.setDisable(false);
+        jarPathInformationPane.setOpacity(1);
+        jarPathInformationPane.setVisible(true);
+        jarPathInformationPane.setDisable(false);
     }
 
     @FXML
@@ -131,9 +164,9 @@ public class SidebarController implements Initializable {
 
     @FXML
     void closeJarDirInformation(MouseEvent event) {
-        tempPathInformationFrame.setOpacity(0);
-        tempPathInformationFrame.setVisible(false);
-        tempPathInformationFrame.setDisable(true);
+        jarPathInformationPane.setOpacity(0);
+        jarPathInformationPane.setVisible(false);
+        jarPathInformationPane.setDisable(true);
     }
 
     @FXML
