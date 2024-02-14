@@ -5,10 +5,14 @@ import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.ErrorHandler;
 
 import java.io.*;
+import java.nio.file.DirectoryStream;
+import java.nio.file.FileSystem;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -16,6 +20,12 @@ import java.util.zip.ZipFile;
 public class Extractor {
     private static Logger LOGGER = MainApp.LOGGER;
     private ErrorHandler errorHandler = new ErrorHandler();
+
+
+    public static String processing = "N/A";
+    public static String[] dependencies;
+    public static String count = "0 / 0";
+    public static boolean completed = false;
 
     public static BorderPane pane = null;
 
@@ -66,7 +76,6 @@ public class Extractor {
             if (folderPath == null) {
                 ErrorHandler.error = "Specified Folder Path is null.";
                 ErrorHandler.setErrorMessage(pane);
-                System.out.println("null");
                 return null;
             }
             List<Path> jarFiles = new ArrayList<>();
@@ -115,5 +124,163 @@ public class Extractor {
             error.printStackTrace();
         }
         return false;
+    }
+
+    public static void extractPlugins(String input, String output) {
+        createTempDirectory(output);
+        int totalcount = getJarCount(input);
+        count = "0 / " + totalcount;
+
+        try {
+            File folder = new File(input);
+            File tempOutput = new File(output);
+            File[] files = folder.listFiles();
+            int aNum = 0;
+
+            if (files != null) {
+                for (File file : files) {
+                    if (file.getName().endsWith(".jar")) {
+                        try (JarFile jarFile = new JarFile(file)) {
+                            processing = jarFile.getName();
+                            JarEntry fileEntry = jarFile.getJarEntry("plugin.yml");
+                            if (fileEntry != null) {
+                                try (InputStream inputStream = jarFile.getInputStream(fileEntry);
+                                    FileOutputStream outputStream = new FileOutputStream(new File(output + "/plugin.yml"))) {
+                                    byte[] buffer = new byte[1024];
+                                    int length;
+                                    while ((length = inputStream.read(buffer)) > 0) {
+                                        outputStream.write(buffer, 0, length);
+                                    }
+                                }
+                            }
+                        }
+                        aNum++;
+                        count = aNum + " / " + totalcount;
+                    }
+                }
+            }
+        } catch (Exception error) {
+            ErrorHandler.error = "Failed to extract plugin: \n" + error;
+            ErrorHandler.setErrorMessage(pane);
+            LOGGER.severe("An unexpected error occured during extracting plugins.");
+            LOGGER.severe(Arrays.toString(error.getStackTrace()));
+        }
+    }
+
+    public static void extractFabricQuiltMods(String input, String output, String desiredOutput) {
+        createTempDirectory(output);
+        int totalcount = getJarCount(input);
+        count = "0 / " + totalcount;
+
+        try {
+            File folder = new File(input);
+            File tempOutput = new File(output);
+            File[] files = folder.listFiles();
+            int aNum = 0;
+
+            if (files != null) {
+                for (File file : files) {
+                    if (file.getName().endsWith(".jar")) {
+                        try (JarFile jarFile = new JarFile(file)) {
+                            processing = jarFile.getName();
+                            JarEntry fileEntry = jarFile.getJarEntry(desiredOutput);
+                            if (fileEntry != null) {
+                                try (InputStream inputStream = jarFile.getInputStream(fileEntry);
+                                     FileOutputStream outputStream = new FileOutputStream(new File(output + "/" + desiredOutput))) {
+                                    byte[] buffer = new byte[1024];
+                                    int length;
+                                    while ((length = inputStream.read(buffer)) > 0) {
+                                        outputStream.write(buffer, 0, length);
+                                    }
+                                }
+                            }
+                        }
+                        aNum++;
+                        count = aNum + " / " + totalcount;
+                    }
+                }
+                processing = "Done!";
+            }
+        } catch (Exception error) {
+            ErrorHandler.error = "Failed to extract plugin: \n" + error;
+            ErrorHandler.setErrorMessage(pane);
+            LOGGER.severe("An unexpected error occured during extracting Fabric / Quilt Mods.");
+            LOGGER.severe(Arrays.toString(error.getStackTrace()));
+        }
+    }
+
+    public static void extractForgeMods(String input, String output) {
+        createTempDirectory(output);
+        int totalcount = getJarCount(input);
+        count = "0 / " + totalcount;
+
+        try {
+            File folder = new File(input);
+            File tempOutput = new File(output);
+            File[] files = folder.listFiles();
+            int aNum = 0;
+
+            if (files != null) {
+                for (File file : files) {
+                    if (file.getName().endsWith(".jar")) {
+                        try (JarFile jarFile = new JarFile(file)) {
+                            processing = jarFile.getName();
+                            JarEntry fileEntry = jarFile.getJarEntry("mods.toml");
+                            if (fileEntry != null) {
+                                try (InputStream inputStream = jarFile.getInputStream(fileEntry);
+                                     FileOutputStream outputStream = new FileOutputStream(new File(output + "/mods.toml"))) {
+                                    byte[] buffer = new byte[1024];
+                                    int length;
+                                    while ((length = inputStream.read(buffer)) > 0) {
+                                        outputStream.write(buffer, 0, length);
+                                    }
+                                }
+                            }
+                        }
+                        aNum++;
+                        count = aNum + " / " + totalcount;
+                    }
+                }
+            }
+        } catch (Exception error) {
+            ErrorHandler.error = "Failed to extract plugin: \n" + error;
+            ErrorHandler.setErrorMessage(pane);
+            LOGGER.severe("An unexpected error occured during extracting mods.");
+            LOGGER.severe(Arrays.toString(error.getStackTrace()));
+        }
+    }
+
+    private static void createTempDirectory(String output) {
+        File directory = new File(output);
+
+        if (!directory.exists()) {
+            boolean created = directory.mkdirs();
+            if (created) {
+                LOGGER.info("Successfully crated temporary directory at [" + output + "].");
+            } else {
+                LOGGER.severe("Failed to create temporary directory at [" + output + "].");
+                ErrorHandler.error = "Failed to create temporary directory at [" + output + "].";
+                ErrorHandler.setErrorMessage(pane);
+            }
+        }
+    }
+
+    private static int getJarCount(String input) {
+        try {
+            File directory = new File(input);
+            File[] jarFiles = directory.listFiles(new FilenameFilter() {
+                @Override
+                public boolean accept(File dir, String name) {
+                    return name.toLowerCase().endsWith(".jar");
+                }
+            });
+            return jarFiles.length;
+        } catch (Exception error) {
+            ErrorHandler.error = "An error occured when trying to get the amount of jarfiles within the plugin / mod directory: \n" + error;
+            ErrorHandler.setErrorMessage(pane);
+            LOGGER.severe("An error occured when trying to get the amount of jarfiles within the plugin / mod directory: \n");
+            LOGGER.severe(Arrays.toString(error.getStackTrace()));
+        }
+        return 0;
     }
 }

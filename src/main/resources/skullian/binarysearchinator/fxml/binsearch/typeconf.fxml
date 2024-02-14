@@ -132,7 +132,7 @@
                         </Label>
                         <Label layoutX="24.0" layoutY="113.0" prefHeight="17.0" prefWidth="138.0" text="Plugin Types" textFill="#d7d3d3" />
                         <Label alignment="CENTER_RIGHT" layoutX="351.0" layoutY="113.0" prefHeight="17.0" prefWidth="138.0" text="Mod Types" textAlignment="RIGHT" textFill="#d7d3d3" />
-                        <Button id="button1" fx:id="forgeType" alignment="BASELINE_LEFT" layoutX="405.0" layoutY="136.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" styleClass="forge" stylesheets="@../../css/menu.css" text="Forge²">
+                        <Button id="button1" fx:id="forgeType" alignment="BASELINE_LEFT" layoutX="405.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#mod" prefHeight="30.0" prefWidth="104.0" styleClass="forge" stylesheets="@../../css/menu.css" text="Forge²">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -147,7 +147,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="button1" fx:id="fabricType" alignment="BASELINE_LEFT" layoutX="299.0" layoutY="136.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" styleClass="fabric" stylesheets="@../../css/menu.css" text="Fabric">
+                        <Button id="button1" fx:id="fabricType" alignment="BASELINE_LEFT" layoutX="299.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#mod" prefHeight="30.0" prefWidth="104.0" styleClass="fabric" stylesheets="@../../css/menu.css" text="Fabric">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -162,7 +162,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="button1" fx:id="quiltType" alignment="BASELINE_LEFT" layoutX="405.0" layoutY="173.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" styleClass="quiltmc" stylesheets="@../../css/menu.css" text="QuiltMC">
+                        <Button id="button1" fx:id="quiltType" alignment="BASELINE_LEFT" layoutX="405.0" layoutY="173.0" mnemonicParsing="false" onMouseClicked="#mod" prefHeight="30.0" prefWidth="104.0" styleClass="quiltmc" stylesheets="@../../css/menu.css" text="QuiltMC">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -177,7 +177,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="button1" fx:id="pluginType" alignment="BASELINE_LEFT" layoutX="14.0" layoutY="136.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" styleClass="paper" stylesheets="@../../css/menu.css" text="Plugin¹">
+                        <Button id="button1" fx:id="pluginType" alignment="BASELINE_LEFT" layoutX="14.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#mod" prefHeight="30.0" prefWidth="104.0" styleClass="paper" stylesheets="@../../css/menu.css" text="Plugin¹">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
