@@ -49,7 +49,7 @@ public class DecomManager implements Initializable {
             extractingField.setText(Extractor.processing);
             dependenciesField.setText(Arrays.toString(Extractor.dependencies));
             if (Extractor.completed) { executorService.shutdown(); }
-        }, 0, 750, TimeUnit.MILLISECONDS);
+        }, 0, 1, TimeUnit.SECONDS);
     }
 
     private void setRotate(Circle c, boolean reverse, int angle, int duration) {
@@ -67,7 +67,7 @@ public class DecomManager implements Initializable {
         switch (ConfirmationHandler.jtype) {
 
             case "Forge":
-
+                Extractor.extractForgeMods(ConfirmationHandler.input, ConfirmationHandler.output);
                 break;
             case "Plugin":
                 Extractor.extractPlugins(ConfirmationHandler.input, ConfirmationHandler.output);

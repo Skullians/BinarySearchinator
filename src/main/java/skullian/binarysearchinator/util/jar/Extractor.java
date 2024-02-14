@@ -44,8 +44,20 @@ public class Extractor {
             Path jarFilePath = getRandomJarFile(input);
             List<String> toCheck = Arrays.asList("plugin.yml", "fabric.mod.json", "mods.toml", "quilt.mod.json");
             ZipFile jarFile = new ZipFile(jarFilePath.toFile());
-
-            for (String fileName: toCheck) {
+            Enumeration<? extends ZipEntry> entries = jarFile.entries();
+            while (entries.hasMoreElements()) {
+                ZipEntry entry = entries.nextElement();
+                if (entry.getName().contains("mods.toml")) {
+                    return "Forge / NeoForged Mod";
+                } else if (entry.getName().contains("plugin.yml")) {
+                    return "Plugin";
+                } else if (entry.getName().contains("fabric.mod.json")) {
+                    return "Fabric Mod";
+                } else if (entry.getName().contains("quilt.mod.json")) {
+                    return "Quilt Mod";
+                }
+            }
+            /*for (String fileName: toCheck) {
                 ZipEntry entry = jarFile.getEntry(fileName);
                 if (entry != null) {
                     if (fileName.equals("plugin.yml")) {
@@ -58,7 +70,7 @@ public class Extractor {
                         return "Quilt Mod";
                     }
                 }
-            }
+            }*/
         } catch (Exception error) {
             ErrorHandler.error = "Failed to get jar type: \n" + error;
             ErrorHandler.setErrorMessage(pane);

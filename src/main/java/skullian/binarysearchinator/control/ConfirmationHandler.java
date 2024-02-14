@@ -56,6 +56,7 @@ public class ConfirmationHandler implements Initializable {
 
         jtype = extractor.getType(SidebarController.jarDir, SidebarController.tempDir);
         if (jtype == null) {
+            ErrorHandler.error = "Jar Type returned Null";
             ErrorHandler.setErrorMessage(borderPane);
             return;
         }
