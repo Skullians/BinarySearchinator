@@ -19,9 +19,19 @@
 ![Downloads](https://img.shields.io/github/downloads/Skullians/BinarySearchinator/total) ![Contributors](https://img.shields.io/github/contributors/Skullians/BinarySearchinator?color=dark-green) ![Stargazers](https://img.shields.io/github/stars/Skullians/BinarySearchinator?style=plastic) ![Issues](https://img.shields.io/github/issues/Skullians/BinarySearchinator) 
 
 ## About The Project
+DISCLAIMER: My code is quite jank. It will most likely contain bugs. Please feel free to insult my code.
 
 Binary Searchinator is a tool dedicated towards simplifying the task of binary searching your Minecraft Plugins and Mods, featuring a user-friendly UI.
 
+<details><summary><a>What is Binary Searching?</a></summary>
+
+  Binary Searching is a quicker and efficient way to diagnose and identify problems. The method for this would look something like:
+  Remove half your plugins and see if the problem is fixed. If it still presists, then the cause is in the half still installed. If not, then it is in the other half you removed.
+  Continue to halve the remaining plugins until it is narrowed down to a single plugin.
+  
+  <img src="https://devopedia.org/images/article/28/2951.1490520804.gif" width="300" height="200"/>
+
+</details>
 
 Binary Searching is a complicated and often lengthy process when done by hand. Although it is one of the fastest methods of identifying problems on your server, this process can become **very extensive** in modded applications when you have 100+ mods on your server.
 
