@@ -3,10 +3,11 @@ package skullian.binarysearchinator.util.jar;
 import javafx.scene.layout.BorderPane;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.ErrorHandler;
+import skullian.binarysearchinator.util.jar.parsing.ParseJSON;
+import skullian.binarysearchinator.util.jar.parsing.ParseTOML;
+import skullian.binarysearchinator.util.jar.parsing.ParseYAML;
 
 import java.io.*;
-import java.nio.file.DirectoryStream;
-import java.nio.file.FileSystem;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,9 +19,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class Extractor {
-    private static Logger LOGGER = MainApp.LOGGER;
-    private ErrorHandler errorHandler = new ErrorHandler();
-
+    private static final Logger LOGGER = MainApp.LOGGER;
 
     public static String processing = "N/A";
     public static String[] dependencies;
@@ -42,7 +41,6 @@ public class Extractor {
             }
 
             Path jarFilePath = getRandomJarFile(input);
-            List<String> toCheck = Arrays.asList("plugin.yml", "fabric.mod.json", "mods.toml", "quilt.mod.json");
             ZipFile jarFile = new ZipFile(jarFilePath.toFile());
             Enumeration<? extends ZipEntry> entries = jarFile.entries();
             while (entries.hasMoreElements()) {
@@ -153,16 +151,21 @@ public class Extractor {
                 for (File file : files) {
                     if (file.getName().endsWith(".jar")) {
                         try (JarFile jarFile = new JarFile(file)) {
-                            processing = jarFile.getName();
+                            processing = file.getName();
                             JarEntry fileEntry = jarFile.getJarEntry("plugin.yml");
+
                             if (fileEntry != null) {
                                 try (InputStream inputStream = jarFile.getInputStream(fileEntry);
+
                                     FileOutputStream outputStream = new FileOutputStream(new File(output + "/plugin.yml"))) {
                                     byte[] buffer = new byte[1024];
                                     int length;
+
                                     while ((length = inputStream.read(buffer)) > 0) {
                                         outputStream.write(buffer, 0, length);
                                     }
+
+                                    ParseYAML.parseYAML(output, file.getName());
                                 }
                             }
                         }
@@ -170,10 +173,13 @@ public class Extractor {
                         count = aNum + " / " + totalcount;
                     }
                 }
+                processing = "Done!";
+                completed = true;
             }
         } catch (Exception error) {
             ErrorHandler.error = "Failed to extract plugin: \n" + error;
             ErrorHandler.setErrorMessage(pane);
+
             LOGGER.severe("An unexpected error occured during extracting plugins.");
             LOGGER.severe(Arrays.toString(error.getStackTrace()));
         }
@@ -194,7 +200,7 @@ public class Extractor {
                 for (File file : files) {
                     if (file.getName().endsWith(".jar")) {
                         try (JarFile jarFile = new JarFile(file)) {
-                            processing = jarFile.getName();
+                            processing = file.getName();
                             JarEntry fileEntry = jarFile.getJarEntry(desiredOutput);
                             if (fileEntry != null) {
                                 try (InputStream inputStream = jarFile.getInputStream(fileEntry);
@@ -204,6 +210,8 @@ public class Extractor {
                                     while ((length = inputStream.read(buffer)) > 0) {
                                         outputStream.write(buffer, 0, length);
                                     }
+
+                                    ParseJSON.parseJSON(output, file.getName(), desiredOutput);
                                 }
                             }
                         }
@@ -212,6 +220,7 @@ public class Extractor {
                     }
                 }
                 processing = "Done!";
+                completed = true;
             }
         } catch (Exception error) {
             ErrorHandler.error = "Failed to extract plugin: \n" + error;
@@ -236,8 +245,8 @@ public class Extractor {
                 for (File file : files) {
                     if (file.getName().endsWith(".jar")) {
                         try (JarFile jarFile = new JarFile(file)) {
-                            processing = jarFile.getName();
-                            JarEntry fileEntry = jarFile.getJarEntry("mods.toml");
+                            processing = file.getName();
+                            JarEntry fileEntry = jarFile.getJarEntry("META-INF/mods.toml");
                             if (fileEntry != null) {
                                 try (InputStream inputStream = jarFile.getInputStream(fileEntry);
                                      FileOutputStream outputStream = new FileOutputStream(new File(output + "/mods.toml"))) {
@@ -246,6 +255,8 @@ public class Extractor {
                                     while ((length = inputStream.read(buffer)) > 0) {
                                         outputStream.write(buffer, 0, length);
                                     }
+
+                                    ParseTOML.parseTOML(output, file.getName());
                                 }
                             }
                         }
@@ -253,6 +264,8 @@ public class Extractor {
                         count = aNum + " / " + totalcount;
                     }
                 }
+                processing = "Done!";
+                completed = true;
             }
         } catch (Exception error) {
             ErrorHandler.error = "Failed to extract plugin: \n" + error;
@@ -268,7 +281,7 @@ public class Extractor {
         if (!directory.exists()) {
             boolean created = directory.mkdirs();
             if (created) {
-                LOGGER.info("Successfully crated temporary directory at [" + output + "].");
+                LOGGER.info("Successfully created temporary directory at [" + output + "].");
             } else {
                 LOGGER.severe("Failed to create temporary directory at [" + output + "].");
                 ErrorHandler.error = "Failed to create temporary directory at [" + output + "].";

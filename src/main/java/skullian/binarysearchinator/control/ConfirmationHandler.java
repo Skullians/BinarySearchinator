@@ -107,9 +107,6 @@ public class ConfirmationHandler implements Initializable {
     void confirmChoices(MouseEvent event) {
         input = dirField.getText();
         output = tempField.getText();
-
-
-
         loadPage("binsearch/decom");
     }
 
