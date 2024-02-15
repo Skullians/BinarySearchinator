@@ -5,12 +5,10 @@ module skullian.binarysearchinator {
     requires javafx.fxml;
     requires javafx.web;
 
-    // Miscellaneous
     requires java.desktop;
     requires java.logging;
     requires java.sql;
 
-    // File Parsing
     requires org.yaml.snakeyaml;
     requires org.json;
     requires toml4j;

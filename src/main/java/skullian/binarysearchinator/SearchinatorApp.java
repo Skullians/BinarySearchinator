@@ -14,6 +14,8 @@ import java.util.logging.Logger;
 public class SearchinatorApp extends Application {
 
     private static Logger LOGGER = MainApp.LOGGER;
+
+    public static Stage SearchinatorStage;
     @Override
     public void start(Stage stage) throws IOException {
         LOGGER.info("Loading searching.fxml");
@@ -27,6 +29,8 @@ public class SearchinatorApp extends Application {
         stage.setTitle("Binary Searchinator");
         stage.show();
         LOGGER.info("FXML File loaded and displaying app");
+
+        SearchinatorStage = stage;
     }
 
     public static void main(String[] args) {

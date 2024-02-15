@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import skullian.binarysearchinator.MainApp;
+import skullian.binarysearchinator.SearchinatorApp;
 import skullian.binarysearchinator.util.jar.Extractor;
 
 import java.net.URL;
@@ -46,7 +47,7 @@ public class DecomManager implements Initializable {
         setRotate(c1, true, 360, 5);
         setRotate(c2, true, 270, 7);
 
-        ExecutorService exec = Executors.newSingleThreadExecutor();
+        /*ExecutorService exec = Executors.newSingleThreadExecutor();
         exec.submit(() -> {
             beginExtraction();
         });
@@ -57,10 +58,19 @@ public class DecomManager implements Initializable {
                 scannedCount.setText(Extractor.count);
                 extractingField.setText(Extractor.processing);
                 dependenciesField.setText(Arrays.toString(Extractor.dependencies));
-                if (Extractor.completed) { executorService.shutdown(); }
+                if (Extractor.completed)
+                {
+                    executorService.shutdown();
+                }
             });
         };
         executorService.scheduleAtFixedRate(task, 0, 1, TimeUnit.MILLISECONDS);
+
+        SearchinatorApp.SearchinatorStage.setOnCloseRequest(event -> {
+            executorService.shutdown();
+            exec.shutdown();
+        });*/
+        beginExtraction();
     }
 
     private void setRotate(Circle c, boolean reverse, int angle, int duration) {
