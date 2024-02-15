@@ -11,6 +11,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLOutput;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -234,7 +235,7 @@ public class Extractor {
         createTempDirectory(output);
         int totalcount = getJarCount(input);
         count = "0 / " + totalcount;
-
+        System.out.println("Init");
         try {
             File folder = new File(input);
             File tempOutput = new File(output);
@@ -242,7 +243,9 @@ public class Extractor {
             int aNum = 0;
 
             if (files != null) {
+                System.out.println("Not null");
                 for (File file : files) {
+                    System.out.println("File " + file.getName());
                     if (file.getName().endsWith(".jar")) {
                         try (JarFile jarFile = new JarFile(file)) {
                             processing = file.getName();
