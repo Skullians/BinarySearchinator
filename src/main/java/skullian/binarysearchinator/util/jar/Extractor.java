@@ -165,6 +165,8 @@ public class Extractor {
                                     while ((length = inputStream.read(buffer)) > 0) {
                                         outputStream.write(buffer, 0, length);
                                     }
+                                    outputStream.flush();
+                                    outputStream.close();
 
                                     ParseYAML.parseYAML(output, file.getName());
                                 }

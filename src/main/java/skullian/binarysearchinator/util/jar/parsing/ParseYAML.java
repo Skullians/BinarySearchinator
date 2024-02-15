@@ -17,7 +17,7 @@ public class ParseYAML {
 
     public static void parseYAML(String output, String processed) {
         Yaml yaml = new Yaml();
-        try (InputStream inputStream = ParseYAML.class.getResourceAsStream(output + "\\plugin.yml")) {
+        try (InputStream inputStream = ParseYAML.class.getClassLoader().getResourceAsStream(output + "\\plugin.yml")) {
             Map<String, Object> data = yaml.load(inputStream);
             String fullName = (String) data.get("name");
 
