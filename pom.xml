@@ -102,11 +102,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20240205</version>
-        </dependency>
-        <dependency>
             <groupId>com.moandjiezana.toml</groupId>
             <artifactId>toml4j</artifactId>
             <version>0.7.2</version>
@@ -203,9 +198,10 @@
                                     <include>org.openjfx:*</include>
                                     <include>org.json:json</include>
                                     <include>com.moandjiezana.toml:toml4j</include>
-                                    <include>com.google.gson:gson</include>
+                                    <include>com.google.code.gson:gson</include>
                                     <include>junit:*</include>
                                     <include>org.hamcrest:*</include>
+                                    <include>org.yaml.snakeyaml:*</include>
                                 </includes>
                             </artifactSet>
                         </configuration>

@@ -1,7 +1,7 @@
 package skullian.binarysearchinator.util.jar.data;
 
+import com.google.gson.JsonObject;
 import com.moandjiezana.toml.Toml;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ public class DataManager {
     public static Map<String, String> fileStorage = new HashMap<>(); // file name, full name (e.g. viaversion.jar / ViaVersion)
 
     public static Map<String, Map<String, Object>> yamlStorage = new HashMap<>(); // full name, yaml object (e.g. ViaVersion / Object)
-    public static Map<String, JSONObject> jsonStorage = new HashMap<>();
+    public static Map<String, JsonObject> jsonStorage = new HashMap<>();
     public static Map<String, Toml> tomlStorage = new HashMap<>();
 
     public static void addFileStorage(String fileName, String parsedName) {
@@ -21,7 +21,7 @@ public class DataManager {
     public static void addYAMLStorage(String fullName, Map<String, Object> data) {
         yamlStorage.put(fullName, data);
     }
-    public static void addJSONStorage(String fullName, JSONObject data) { jsonStorage.put(fullName, data); }
+    public static void addJSONStorage(String fullName, JsonObject data) { jsonStorage.put(fullName, data); }
     public static void addTOMLStorage(String fullName, Toml data) { tomlStorage.put(fullName, data); }
 
     public static String queryFiles(String fileName) {
@@ -38,7 +38,7 @@ public class DataManager {
         return null;
     }
 
-    public static JSONObject queryJSON(String fullName) {
+    public static JsonObject queryJSON(String fullName) {
         if (jsonStorage.containsKey(fullName)) {
             return jsonStorage.get(fullName);
         }

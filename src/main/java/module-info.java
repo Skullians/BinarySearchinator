@@ -8,9 +8,9 @@ module skullian.binarysearchinator {
     requires java.desktop;
     requires java.logging;
     requires java.sql;
+    requires com.google.gson;
 
     requires org.yaml.snakeyaml;
-    requires org.json;
     requires toml4j;
 
     // JavaFX
