@@ -47,7 +47,7 @@ public class DecomManager implements Initializable {
         setRotate(c1, true, 360, 5);
         setRotate(c2, true, 270, 7);
 
-        /*ExecutorService exec = Executors.newSingleThreadExecutor();
+        ExecutorService exec = Executors.newSingleThreadExecutor();
         exec.submit(() -> {
             beginExtraction();
         });
@@ -68,8 +68,8 @@ public class DecomManager implements Initializable {
         SearchinatorApp.SearchinatorStage.setOnCloseRequest(event -> {
             executorService.shutdown();
             exec.shutdown();
-        });*/
-        beginExtraction();
+        });
+       // beginExtraction();
     }
 
     private void setRotate(Circle c, boolean reverse, int angle, int duration) {

@@ -1,7 +1,5 @@
 package skullian.binarysearchinator;
 
-import skullian.binarysearchinator.util.jar.parsing.ParseJSON;
-
 import java.util.logging.Logger;
 
 public class MainApp {
