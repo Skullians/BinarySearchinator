@@ -71,7 +71,7 @@ Distributed under the Apache-2.0 License. See **[License](https://github.com/Sku
 ## Authors
 
 * **Skullians** - *Jank Code Writer* - [Skullians](https://github.com/Skullians/) - *Main Developer*
-* * **Nouish** - *Nouish* - [nouish](https://github.com/nouish/) - *has helped me a TON with this :3, incredibly talented programmer.*
+* **Nouish** - *Nouish* - [nouish](https://github.com/nouish/) - *has helped me a TON with this :3, incredibly talented programmer.*
 * **Torrent @ TorrentSMP** - *Amazing, talented person* - [Torrent @ TorrentSMP](https://dsc.gg/torrentsmp) - *Helped consult with UI Design*
 * **r/Admincraft** - *r/Admincraft* - [r/Admincraft](https://discord.gg/SuNAeaJBMd) - *Inspiration for this tool*
 
