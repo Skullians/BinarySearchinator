@@ -123,6 +123,24 @@
             <version>2.2</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency> <!-- SQL stuff -->
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.45.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>24.0.0</version>
+        </dependency>
     </dependencies>
 
     <repositories>
@@ -202,6 +220,8 @@
                                     <include>junit:*</include>
                                     <include>org.hamcrest:*</include>
                                     <include>org.yaml.snakeyaml:*</include>
+                                    <include>com.zaxxer.hikari:*</include>
+                                    <include>org.sqlite:*</include>
                                 </includes>
                             </artifactSet>
                         </configuration>

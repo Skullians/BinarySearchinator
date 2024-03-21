@@ -13,6 +13,10 @@ module skullian.binarysearchinator {
     requires org.yaml.snakeyaml;
     requires toml4j;
 
+    requires com.zaxxer.hikari;
+    requires org.xerial.sqlitejdbc;
+    requires org.jetbrains.annotations;
+
     // JavaFX
     opens skullian.binarysearchinator to javafx.fxml;
     exports skullian.binarysearchinator;
