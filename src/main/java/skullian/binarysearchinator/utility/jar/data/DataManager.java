@@ -1,9 +1,10 @@
-package skullian.binarysearchinator.util.jar.data;
+package skullian.binarysearchinator.utility.jar.data;
 
 import com.google.gson.JsonObject;
 import com.moandjiezana.toml.Toml;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DataManager {
@@ -14,6 +15,8 @@ public class DataManager {
     public static Map<String, JsonObject> jsonStorage = new HashMap<>();
     public static Map<String, Toml> tomlStorage = new HashMap<>();
 
+    public static Map<String, String> modIDStorage = new HashMap<>();
+
     public static void addFileStorage(String fileName, String parsedName) {
         fileStorage.put(fileName, parsedName);
     }
@@ -23,6 +26,18 @@ public class DataManager {
     }
     public static void addJSONStorage(String fullName, JsonObject data) { jsonStorage.put(fullName, data); }
     public static void addTOMLStorage(String fullName, Toml data) { tomlStorage.put(fullName, data); }
+
+    public static void addModID(String fullName, String modID) { modIDStorage.put(fullName, modID); }
+
+    // -------------------------------------------------------------------------------------------- //
+
+    public static Map<String, List<String>> presentDependencies = new HashMap<>();
+    public static Map<String, List<String>> missingDependencies = new HashMap<>();
+
+    public static void addDependencies(String fullName, List<String> data) { presentDependencies.put(fullName, data); }
+    public static void addMissingDependencies(String fullName, List<String> data) { missingDependencies.put(fullName, data); }
+
+    // -------------------------------------------------------------------------------------------- //
 
     public static String queryFiles(String fileName) {
         if (fileStorage.containsKey(fileName)) {

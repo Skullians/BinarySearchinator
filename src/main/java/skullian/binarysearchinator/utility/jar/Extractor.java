@@ -1,17 +1,16 @@
-package skullian.binarysearchinator.util.jar;
+package skullian.binarysearchinator.utility.jar;
 
 import javafx.scene.layout.BorderPane;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.ErrorHandler;
-import skullian.binarysearchinator.util.jar.parsing.ParseJSON;
-import skullian.binarysearchinator.util.jar.parsing.ParseTOML;
-import skullian.binarysearchinator.util.jar.parsing.ParseYAML;
+import skullian.binarysearchinator.utility.jar.parsing.ParseJSON;
+import skullian.binarysearchinator.utility.jar.parsing.ParseTOML;
+import skullian.binarysearchinator.utility.jar.parsing.ParseYAML;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.SQLOutput;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;

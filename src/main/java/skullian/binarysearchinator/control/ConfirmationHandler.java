@@ -10,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import skullian.binarysearchinator.MainApp;
-import skullian.binarysearchinator.util.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.Extractor;
 
 import java.net.URL;
 import java.util.Arrays;

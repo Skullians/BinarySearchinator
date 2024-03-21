@@ -1,10 +1,10 @@
-package skullian.binarysearchinator.util.jar.parsing;
+package skullian.binarysearchinator.utility.jar.parsing;
 
 import org.yaml.snakeyaml.Yaml;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.ErrorHandler;
-import skullian.binarysearchinator.util.jar.Extractor;
-import skullian.binarysearchinator.util.jar.data.DataManager;
+import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.data.DataManager;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -26,6 +26,8 @@ public class ParseYAML {
 
             DataManager.addFileStorage(processed, fullName);
             DataManager.addYAMLStorage(fullName, data);
+
+            DependencyParsing.parseDependencies("YAML");
         } catch (IOException error) {
             ErrorHandler.error = "An unexpected error occured when parsing YAML files: \n" + error;
             ErrorHandler.setErrorMessage(Extractor.pane);

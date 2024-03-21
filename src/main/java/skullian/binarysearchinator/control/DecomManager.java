@@ -12,7 +12,7 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.SearchinatorApp;
-import skullian.binarysearchinator.util.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.Extractor;
 
 import java.net.URL;
 import java.util.Arrays;

@@ -1,11 +1,11 @@
-package skullian.binarysearchinator.util.jar.parsing;
+package skullian.binarysearchinator.utility.jar.parsing;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.ErrorHandler;
-import skullian.binarysearchinator.util.jar.Extractor;
-import skullian.binarysearchinator.util.jar.data.DataManager;
+import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.data.DataManager;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,6 +29,8 @@ public class ParseJSON {
 
             DataManager.addFileStorage(processed, fullName);
             DataManager.addJSONStorage(fullName, jsonObject);
+
+            DependencyParsing.parseDependencies("JSON");
         } catch (IOException error) {
             ErrorHandler.error = "An unexpected error occured when parsing JSON files: \n" + error;
             ErrorHandler.setErrorMessage(Extractor.pane);
