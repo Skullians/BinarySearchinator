@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.control.ConfirmationHandler">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.control.ConfigConfirmationHandler">
    <children>
       <BorderPane fx:id="borderPane" prefHeight="554.0" prefWidth="974.0">
          <left>
@@ -73,7 +73,7 @@
                   </Button>
                   <Label layoutX="274.0" layoutY="335.0" prefHeight="15.0" prefWidth="137.0" text="Jar Type" textFill="#aeaeae" />
                   <TextField fx:id="jarTypeField" editable="false" layoutX="275.0" layoutY="352.0" prefHeight="30.0" prefWidth="429.0" promptText="Temporary Folder Path (Optional)" style="-fx-background-color: #4d4d4d; -fx-text-fill: #FFFFFF;" />
-                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="237.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#openTypePane" prefHeight="30.0" prefWidth="11.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 0.2em; -fx-background-color: #4d4d4d;" stylesheets="@../../css/menu.css">
+                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="237.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#openJarTypeSelectionPane" prefHeight="30.0" prefWidth="11.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 0.2em; -fx-background-color: #4d4d4d;" stylesheets="@../../css/menu.css">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -81,14 +81,14 @@
                         <Font size="14.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="20.0" onMouseClicked="#openTypePane" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #4d4d4d;" y="206.0">
+                        <ImageView fitHeight="30.0" fitWidth="20.0" onMouseClicked="#openJarTypeSelectionPane" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #4d4d4d;" y="206.0">
                            <image>
                               <Image url="@../../img/Info.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="711.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#openTypePane" prefHeight="30.0" prefWidth="11.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 0.2em; -fx-background-color: #4d4d4d;" stylesheets="@../../css/menu.css">
+                  <Button id="button1" alignment="BASELINE_LEFT" layoutX="711.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#openJarTypeSelectionPane" prefHeight="30.0" prefWidth="11.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 0.2em; -fx-background-color: #4d4d4d;" stylesheets="@../../css/menu.css">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -105,7 +105,7 @@
                   </Button>
                   <Pane fx:id="jarTypeInformationPane" disable="true" layoutX="234.0" layoutY="168.0" opacity="0.0" prefHeight="241.0" prefWidth="512.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 2em;" visible="false">
                      <children>
-                        <Button id="button1" alignment="BASELINE_LEFT" layoutX="473.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#closeTypePane" prefHeight="30.0" prefWidth="24.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 1em; -fx-background-color: #1E1E1E;">
+                        <Button id="button1" alignment="BASELINE_LEFT" layoutX="473.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#closeJarTypeSelectionPane" prefHeight="30.0" prefWidth="24.0" style="-fx-text-fill: #4d4d4d; -fx-background-radius: 1em; -fx-background-color: #1E1E1E;">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -132,7 +132,7 @@
                         </Label>
                         <Label layoutX="24.0" layoutY="113.0" prefHeight="17.0" prefWidth="138.0" text="Plugin Types" textFill="#d7d3d3" />
                         <Label alignment="CENTER_RIGHT" layoutX="351.0" layoutY="113.0" prefHeight="17.0" prefWidth="138.0" text="Mod Types" textAlignment="RIGHT" textFill="#d7d3d3" />
-                        <Button id="button1" fx:id="forgeType" alignment="BASELINE_LEFT" layoutX="405.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#mod" prefHeight="30.0" prefWidth="104.0" styleClass="forge" stylesheets="@../../css/menu.css" text="Forge²">
+                        <Button id="button1" fx:id="forgeType" alignment="BASELINE_LEFT" layoutX="405.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#updateJarType" prefHeight="30.0" prefWidth="104.0" styleClass="forge" stylesheets="@../../css/menu.css" text="Forge²">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -147,7 +147,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="button1" fx:id="fabricType" alignment="BASELINE_LEFT" layoutX="299.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#mod" prefHeight="30.0" prefWidth="104.0" styleClass="fabric" stylesheets="@../../css/menu.css" text="Fabric">
+                        <Button id="button1" fx:id="fabricType" alignment="BASELINE_LEFT" layoutX="299.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#updateJarType" prefHeight="30.0" prefWidth="104.0" styleClass="fabric" stylesheets="@../../css/menu.css" text="Fabric">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -162,7 +162,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="button1" fx:id="quiltType" alignment="BASELINE_LEFT" layoutX="405.0" layoutY="173.0" mnemonicParsing="false" onMouseClicked="#mod" prefHeight="30.0" prefWidth="104.0" styleClass="quiltmc" stylesheets="@../../css/menu.css" text="QuiltMC">
+                        <Button id="button1" fx:id="quiltType" alignment="BASELINE_LEFT" layoutX="405.0" layoutY="173.0" mnemonicParsing="false" onMouseClicked="#updateJarType" prefHeight="30.0" prefWidth="104.0" styleClass="quiltmc" stylesheets="@../../css/menu.css" text="QuiltMC">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -177,7 +177,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="button1" fx:id="pluginType" alignment="BASELINE_LEFT" layoutX="14.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#mod" prefHeight="30.0" prefWidth="104.0" styleClass="paper" stylesheets="@../../css/menu.css" text="Plugin¹">
+                        <Button id="button1" fx:id="pluginType" alignment="BASELINE_LEFT" layoutX="14.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#updateJarType" prefHeight="30.0" prefWidth="104.0" styleClass="paper" stylesheets="@../../css/menu.css" text="Plugin¹">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>

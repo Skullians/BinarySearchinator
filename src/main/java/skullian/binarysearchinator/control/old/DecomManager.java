@@ -1,4 +1,4 @@
-package skullian.binarysearchinator.control;
+package skullian.binarysearchinator.control.old;
 
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
@@ -12,9 +12,11 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.SearchinatorApp;
+import skullian.binarysearchinator.utility.database.HikariDataHandler;
 import skullian.binarysearchinator.utility.jar.Extractor;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
@@ -84,6 +86,24 @@ public class DecomManager implements Initializable {
 
     private void beginExtraction() {
         Extractor.pane = borderPane;
+
+        Extractor.createTempDirectory(ConfirmationHandler.output);
+        try {
+            LOGGER.warning("Initialising SQLite.");
+            MainApp.database = new HikariDataHandler();
+            MainApp.database.initialiseDatabase(ConfirmationHandler.output);
+
+            LOGGER.warning("Registering SQLite Configurations.");
+            MainApp.database.registerConfigs(ConfirmationHandler.input, ConfirmationHandler.jtype);
+            LOGGER.warning("SQLite initialised.");
+        } catch (SQLException error) {
+            LOGGER.severe("---------------- DATABASE ERROR ----------------");
+            LOGGER.severe("An unexpected error occurred when initialising the database.");
+            LOGGER.severe("See the below error:");
+            LOGGER.severe("---------------- DATABASE ERROR ----------------");
+            error.printStackTrace();
+        }
+
         switch (ConfirmationHandler.jtype) {
 
             case "Forge":

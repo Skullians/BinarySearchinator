@@ -16,10 +16,13 @@ module skullian.binarysearchinator {
     requires com.zaxxer.hikari;
     requires org.xerial.sqlitejdbc;
     requires org.jetbrains.annotations;
+    requires org.slf4j;
 
     // JavaFX
     opens skullian.binarysearchinator to javafx.fxml;
     exports skullian.binarysearchinator;
     exports skullian.binarysearchinator.control;
     opens skullian.binarysearchinator.control to javafx.fxml;
+    exports skullian.binarysearchinator.control.old;
+    opens skullian.binarysearchinator.control.old to javafx.fxml;
 }

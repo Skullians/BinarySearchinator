@@ -1,4 +1,4 @@
-package skullian.binarysearchinator.utility.jar.parsing;
+package skullian.binarysearchinator.utility.jar.parsing.old;
 
 import com.google.gson.JsonObject;
 import com.moandjiezana.toml.Toml;

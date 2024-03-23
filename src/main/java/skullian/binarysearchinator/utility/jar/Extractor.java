@@ -2,10 +2,10 @@ package skullian.binarysearchinator.utility.jar;
 
 import javafx.scene.layout.BorderPane;
 import skullian.binarysearchinator.MainApp;
-import skullian.binarysearchinator.control.ErrorHandler;
-import skullian.binarysearchinator.utility.jar.parsing.ParseJSON;
-import skullian.binarysearchinator.utility.jar.parsing.ParseTOML;
-import skullian.binarysearchinator.utility.jar.parsing.ParseYAML;
+import skullian.binarysearchinator.control.old.ErrorHandler;
+import skullian.binarysearchinator.utility.jar.parsing.old.ParseJSON;
+import skullian.binarysearchinator.utility.jar.parsing.old.ParseTOML;
+import skullian.binarysearchinator.utility.jar.parsing.old.ParseYAML;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -55,20 +55,6 @@ public class Extractor {
                     return "Quilt Mod";
                 }
             }
-            /*for (String fileName: toCheck) {
-                ZipEntry entry = jarFile.getEntry(fileName);
-                if (entry != null) {
-                    if (fileName.equals("plugin.yml")) {
-                        return "Plugin";
-                    } else if (fileName.equals("fabric.mod.json")) {
-                        return "Fabric Mod";
-                    } else if (fileName.equals("mods.toml")) {
-                        return "Forge / NeoForge Mod";
-                    } else if (fileName.equals("quilt.mod.json")) {
-                        return "Quilt Mod";
-                    }
-                }
-            }*/
         } catch (Exception error) {
             ErrorHandler.error = "Failed to get jar type: \n" + error;
             ErrorHandler.setErrorMessage(pane);
@@ -185,6 +171,9 @@ public class Extractor {
     }
 
     public static void extractFabricQuiltMods(String input, String output, String desiredOutput) {
+        System.out.println(input);
+        System.out.println(output);
+        System.out.println(desiredOutput);
         createTempDirectory(output);
         int totalcount = getJarCount(input);
         count = "0 / " + totalcount;
@@ -276,7 +265,7 @@ public class Extractor {
         }
     }
 
-    private static void createTempDirectory(String output) {
+    public static void createTempDirectory(String output) {
         File directory = new File(output);
 
         if (!directory.exists()) {

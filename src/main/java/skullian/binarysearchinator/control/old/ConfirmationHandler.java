@@ -1,4 +1,4 @@
-package skullian.binarysearchinator.control;
+package skullian.binarysearchinator.control.old;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

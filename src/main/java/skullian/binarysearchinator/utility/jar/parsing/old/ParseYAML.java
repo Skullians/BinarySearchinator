@@ -1,8 +1,8 @@
-package skullian.binarysearchinator.utility.jar.parsing;
+package skullian.binarysearchinator.utility.jar.parsing.old;
 
 import org.yaml.snakeyaml.Yaml;
 import skullian.binarysearchinator.MainApp;
-import skullian.binarysearchinator.control.ErrorHandler;
+import skullian.binarysearchinator.control.old.ErrorHandler;
 import skullian.binarysearchinator.utility.jar.Extractor;
 import skullian.binarysearchinator.utility.jar.data.DataManager;
 

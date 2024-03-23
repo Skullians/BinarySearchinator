@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skullian.binarysearchinator.control.PreviousDataConfirmationController">
+   <children>
+      <BorderPane fx:id="borderPane" prefHeight="554.0" prefWidth="974.0">
+         <right>
+            <Pane prefHeight="554.0" prefWidth="976.0" style="-fx-background-color: #1E1E1E;" stylesheets="@../../css/menu.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="277.0" layoutY="14.0" prefHeight="61.0" prefWidth="423.0" text="Continue Previous" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="38.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="420.0" layoutY="57.0" prefHeight="36.0" prefWidth="137.0" text="Binary Searchinator" textFill="#aeaeae">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="257.0" layoutY="105.0" prefHeight="68.0" prefWidth="464.0" text="We have found previous search data for this mod / plugin folder!&#10;Would you like to continue?&#10;If so, check the below data and confirm that it is correct.&#10;&#10;&#10;&#10;&#10;&#10;" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="807.0" layoutY="533.0" prefHeight="0.0" prefWidth="162.0" text="yes, i know the ui is awful so deal with it" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="dirField" layoutX="275.0" layoutY="217.0" prefHeight="30.0" prefWidth="429.0" promptText="Plugin / Mod Folder Path" style="-fx-background-color: #4d4d4d; -fx-text-fill: #FFFFFF;" />
+                  <Label layoutX="275.0" layoutY="197.0" prefHeight="15.0" prefWidth="137.0" text="Plugin / Mod Folder" textFill="#aeaeae" />
+                  <TextField fx:id="tempField" layoutX="275.0" layoutY="283.0" prefHeight="30.0" prefWidth="429.0" promptText="Temporary Folder Path (Optional)" style="-fx-background-color: #4d4d4d; -fx-text-fill: #FFFFFF;" />
+                  <Label layoutX="275.0" layoutY="263.0" prefHeight="15.0" prefWidth="137.0" text="Temporary Folder" textFill="#aeaeae" />
+                  <TextField fx:id="jarType" layoutX="275.0" layoutY="347.0" prefHeight="30.0" prefWidth="429.0" promptText="P L A C E H O L D E R" style="-fx-background-color: #4d4d4d; -fx-text-fill: #FFFFFF;" />
+                  <Label layoutX="275.0" layoutY="327.0" prefHeight="15.0" prefWidth="137.0" text="Mod / Plugin Type" textFill="#aeaeae" />
+                  <Button id="button1" fx:id="continueButton" alignment="BASELINE_LEFT" layoutX="618.0" layoutY="419.0" mnemonicParsing="false" onMouseClicked="#confirmContinuation" prefHeight="30.0" prefWidth="95.0" style="-fx-text-fill: #FFFFFF; -fx-background-radius: 0.2em; -fx-background-color: #282828;" stylesheets="@../../css/menu.css" text="Continue">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/done.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="button1" fx:id="restartButton" alignment="BASELINE_LEFT" layoutX="266.0" layoutY="419.0" mnemonicParsing="false" onMouseClicked="#restartSelection" prefHeight="30.0" prefWidth="95.0" style="-fx-text-fill: #FFFFFF; -fx-background-radius: 0.2em; -fx-background-color: #282828;" stylesheets="@../../css/menu.css" text="Restart">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></Pane>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
