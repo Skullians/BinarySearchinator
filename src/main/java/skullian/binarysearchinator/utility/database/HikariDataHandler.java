@@ -121,4 +121,21 @@ public class HikariDataHandler {
     }
 
 
+    // ------------------------ 'RESET' ------------------------ //
+
+
+    public void purgeData() throws SQLException {
+        try (Connection connection = dataSource.getConnection();
+            PreparedStatement configDataPurge = connection.prepareStatement("DELETE FROM configData");
+            PreparedStatement dependenciesDataPurge = connection.prepareStatement("DELETE FROM dependenciesData")) {
+
+            configDataPurge.executeUpdate();
+            dependenciesDataPurge.executeUpdate();
+
+            configDataPurge.close();
+            dependenciesDataPurge.close();
+
+            connection.close();
+        }
+    }
 }

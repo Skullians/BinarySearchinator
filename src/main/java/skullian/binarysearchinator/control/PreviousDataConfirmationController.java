@@ -70,7 +70,19 @@ public class PreviousDataConfirmationController implements Initializable {
     }
 
     @FXML
-    void restartSelection(MouseEvent event) { switchPage("main"); }
+    void restartSelection(MouseEvent event) {
+        try {
+            LOGGER.warning("User chose to restart the searching! Purging SQLite Data...");
+            MainApp.database.purgeData();
+            LOGGER.warning("Successfully purged data.");
+            switchPage("main");
+        } catch (SQLException error) {
+            ErrorHandler.error = "An error occurred when trying to reset SQLite Data: \n" + error.getMessage();
+            ErrorHandler.setErrorMessage(borderPane);
+            LOGGER.severe("An error occurred when trying to reset SQLite Data: \n" + error.getMessage());
+            error.printStackTrace();
+        }
+    }
 
     private void switchPage(String pageName) {
         try {
