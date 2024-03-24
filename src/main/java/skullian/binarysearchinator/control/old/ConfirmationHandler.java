@@ -10,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import skullian.binarysearchinator.MainApp;
-import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.JarManager;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 public class ConfirmationHandler implements Initializable {
     private static Logger LOGGER = MainApp.LOGGER;
-    Extractor extractor = new Extractor();
+    JarManager jarManager = new JarManager();
 
     public static String jtype = "n/a";
     public Button jsel = null;
@@ -54,7 +54,7 @@ public class ConfirmationHandler implements Initializable {
         dirField.setText(SidebarController.jarDir);
         tempField.setText(SidebarController.tempDir);
 
-        jtype = extractor.getType(SidebarController.jarDir, SidebarController.tempDir);
+        jtype = jarManager.getType(SidebarController.jarDir, SidebarController.tempDir);
         if (jtype == null) {
             ErrorHandler.error = "Jar Type returned Null";
             ErrorHandler.setErrorMessage(borderPane);
@@ -142,7 +142,7 @@ public class ConfirmationHandler implements Initializable {
         switch (sel.getText()) {
 
             case "Forge²":
-                jarTypeField.setText("Forge / NeoForge Mod");
+                jarTypeField.setText("Forge / NeoForged Mod");
                 jtype = "Forge";
                 break;
             case "Plugin¹":

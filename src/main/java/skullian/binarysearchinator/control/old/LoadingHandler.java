@@ -7,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import skullian.binarysearchinator.MainApp;
-import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.JarManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,7 +26,7 @@ public class LoadingHandler implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Extractor.pane = borderPane;
+        JarManager.pane = borderPane;
         setRotate(c1, true, 360, 5);
         setRotate(c2, true, 270, 7);
 

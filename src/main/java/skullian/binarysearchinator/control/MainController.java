@@ -17,7 +17,7 @@ import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.old.ErrorHandler;
 import skullian.binarysearchinator.utility.database.ConfigModel;
 import skullian.binarysearchinator.utility.database.HikariDataHandler;
-import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.JarManager;
 
 import java.io.File;
 import java.net.URL;
@@ -112,7 +112,7 @@ public class MainController implements Initializable {
             jarDirectory = dirField.getText();
             temporaryDirectory = tempField.getText();
 
-            Extractor.createTempDirectory(temporaryDirectory);
+            JarManager.createTemporaryDirectory(temporaryDirectory);
 
             ConfigModel configModel = initialiseDatabase(jarDirectory, temporaryDirectory);
 
@@ -136,7 +136,7 @@ public class MainController implements Initializable {
 
     private ConfigModel initialiseDatabase(String jarDirectory, String temporaryDirectory) {
         try {
-            Extractor.pane = borderPane;
+            JarManager.pane = borderPane;
 
             MainApp.database = new HikariDataHandler();
             MainApp.database.initialiseDatabase(temporaryDirectory);

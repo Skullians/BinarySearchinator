@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.old.ErrorHandler;
-import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.JarManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +21,7 @@ public class ConfigConfirmationHandler implements Initializable {
     // ------------------------ RANDOM SHIT ------------------------ //
 
     private final static Logger LOGGER = MainApp.LOGGER;
-    Extractor extractor = new Extractor();
+    JarManager jarManager = new JarManager();
 
     String jarType = null;
     public Button selectedButton;
@@ -56,7 +56,7 @@ public class ConfigConfirmationHandler implements Initializable {
         dirField.setText(MainController.jarDirectory);
         tempField.setText(MainController.temporaryDirectory);
 
-        jarType = extractor.getType(MainController.jarDirectory, MainController.temporaryDirectory);
+        jarType = jarManager.getType(MainController.jarDirectory, MainController.temporaryDirectory);
         if (jarType == null) {
             ErrorHandler.error = "Jar Type returned null\n\nAre you sure you specified the correct mod / plugin directory?";
             ErrorHandler.setErrorMessage(borderPane);
@@ -72,7 +72,7 @@ public class ConfigConfirmationHandler implements Initializable {
                 pluginType.setStyle("-fx-background-color: #165DDB");
                 break;
             case "Fabric Mod":
-                jarType = "Fabric";
+                jarType = "Fabric Mod";
                 selectedButton = fabricType;
                 fabricType.setStyle("-fx-background-radius: 1em");
                 fabricType.setStyle("-fx-background-color: #165DDB");
@@ -151,8 +151,8 @@ public class ConfigConfirmationHandler implements Initializable {
         switch (jarTypeModificationButton.getText()) {
 
             case "Forge²":
-                jarTypeField.setText("Forge / NeoForge Mod");
-                jarType = "Forge";
+                jarTypeField.setText("Forge / NeoForged Mod");
+                jarType = "Forge / NeoForged Mod";
                 break;
             case "Plugin¹":
                 jarTypeField.setText("Plugin");
@@ -160,11 +160,11 @@ public class ConfigConfirmationHandler implements Initializable {
                 break;
             case "Fabric":
                 jarTypeField.setText("Fabric Mod");
-                jarType = "Fabric";
+                jarType = "Fabric Mod";
                 break;
             case "QuiltMC":
                 jarTypeField.setText("Quilt Mod");
-                jarType = "Quilt";
+                jarType = "Quilt Mod";
                 break;
         }
     }

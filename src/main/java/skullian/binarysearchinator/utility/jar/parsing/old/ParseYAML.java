@@ -3,7 +3,7 @@ package skullian.binarysearchinator.utility.jar.parsing.old;
 import org.yaml.snakeyaml.Yaml;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.old.ErrorHandler;
-import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.JarManager;
 import skullian.binarysearchinator.utility.jar.data.DataManager;
 
 import java.io.*;
@@ -30,7 +30,7 @@ public class ParseYAML {
             DependencyParsing.parseDependencies("YAML");
         } catch (IOException error) {
             ErrorHandler.error = "An unexpected error occured when parsing YAML files: \n" + error;
-            ErrorHandler.setErrorMessage(Extractor.pane);
+            ErrorHandler.setErrorMessage(JarManager.pane);
             LOGGER.severe("An unexpected error occured when parsing YAML files.");
             LOGGER.severe(Arrays.toString(error.getStackTrace()));
             error.printStackTrace();

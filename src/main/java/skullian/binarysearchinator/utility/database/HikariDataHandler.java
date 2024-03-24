@@ -138,4 +138,8 @@ public class HikariDataHandler {
             connection.close();
         }
     }
+
+    public void closeConnection() throws SQLException {
+        dataSource.close();
+    }
 }

@@ -13,7 +13,7 @@ import javafx.util.Duration;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.SearchinatorApp;
 import skullian.binarysearchinator.utility.database.HikariDataHandler;
-import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.JarManager;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -45,7 +45,7 @@ public class DecomManager implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Extractor.pane = borderPane;
+        JarManager.pane = borderPane;
         setRotate(c1, true, 360, 5);
         setRotate(c2, true, 270, 7);
 
@@ -57,10 +57,10 @@ public class DecomManager implements Initializable {
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
         Runnable task = () -> {
             Platform.runLater(() -> {
-                scannedCount.setText(Extractor.count);
-                extractingField.setText(Extractor.processing);
-                dependenciesField.setText(Arrays.toString(Extractor.dependencies));
-                if (Extractor.completed) {
+                scannedCount.setText(JarManager.count);
+                extractingField.setText(JarManager.processing);
+                dependenciesField.setText(Arrays.toString(JarManager.dependencies));
+                if (JarManager.completed) {
                     executorService.shutdown();
                 }
             });
@@ -85,9 +85,9 @@ public class DecomManager implements Initializable {
     }
 
     private void beginExtraction() {
-        Extractor.pane = borderPane;
+        JarManager.pane = borderPane;
 
-        Extractor.createTempDirectory(ConfirmationHandler.output);
+        JarManager.createTemporaryDirectory(ConfirmationHandler.output);
         try {
             LOGGER.warning("Initialising SQLite.");
             MainApp.database = new HikariDataHandler();
@@ -106,21 +106,21 @@ public class DecomManager implements Initializable {
 
         switch (ConfirmationHandler.jtype) {
 
-            case "Forge":
-                LOGGER.warning("Extracting Forge / NeoForge Mods.");
-                Extractor.extractForgeMods(ConfirmationHandler.input, ConfirmationHandler.output);
+            case "Forge / NeoForged Mod":
+                LOGGER.warning("Extracting Forge / NeoForged Mods.");
+                JarManager.extractForgeMods(ConfirmationHandler.input, ConfirmationHandler.output);
                 break;
             case "Plugin":
                 LOGGER.warning("Extracting Spigot / Paper Plugins.");
-                Extractor.extractPlugins(ConfirmationHandler.input, ConfirmationHandler.output);
+                JarManager.extractPlugins(ConfirmationHandler.input, ConfirmationHandler.output);
                 break;
-            case "Fabric":
+            case "Fabric Mod":
                 LOGGER.warning("Extracting Fabric Mods.");
-                Extractor.extractFabricQuiltMods(ConfirmationHandler.input, ConfirmationHandler.output, "fabric.mod.json");
+                JarManager.extractFabricOrQuiltMods(ConfirmationHandler.input, ConfirmationHandler.output, "fabric.mod.json");
                 break;
-            case "Quilt":
+            case "Quilt Mod":
                 LOGGER.warning("Extracting Quilt Mods.");
-                Extractor.extractFabricQuiltMods(ConfirmationHandler.input, ConfirmationHandler.output, "quilt.mod.json");
+                JarManager.extractFabricOrQuiltMods(ConfirmationHandler.input, ConfirmationHandler.output, "quilt.mod.json");
                 break;
         }
     }

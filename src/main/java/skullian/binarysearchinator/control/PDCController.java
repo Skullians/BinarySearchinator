@@ -8,18 +8,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.old.ErrorHandler;
 import skullian.binarysearchinator.utility.database.ConfigModel;
-import skullian.binarysearchinator.utility.jar.Extractor;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class PreviousDataConfirmationController implements Initializable {
+public class PDCController implements Initializable {
 
     private static final Logger LOGGER = MainApp.LOGGER;
     private ErrorHandler errorHandler = new ErrorHandler();
@@ -74,7 +72,8 @@ public class PreviousDataConfirmationController implements Initializable {
         try {
             LOGGER.warning("User chose to restart the searching! Purging SQLite Data...");
             MainApp.database.purgeData();
-            LOGGER.warning("Successfully purged data.");
+            LOGGER.warning("Successfully purged data, closing connection.");
+            MainApp.database.closeConnection();
             switchPage("main");
         } catch (SQLException error) {
             ErrorHandler.error = "An error occurred when trying to reset SQLite Data: \n" + error.getMessage();

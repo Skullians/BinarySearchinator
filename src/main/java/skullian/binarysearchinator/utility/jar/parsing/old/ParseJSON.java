@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import skullian.binarysearchinator.MainApp;
 import skullian.binarysearchinator.control.old.ErrorHandler;
-import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.JarManager;
 import skullian.binarysearchinator.utility.jar.data.DataManager;
 
 import java.io.BufferedReader;
@@ -33,7 +33,7 @@ public class ParseJSON {
             DependencyParsing.parseDependencies("JSON");
         } catch (IOException error) {
             ErrorHandler.error = "An unexpected error occured when parsing JSON files: \n" + error;
-            ErrorHandler.setErrorMessage(Extractor.pane);
+            ErrorHandler.setErrorMessage(JarManager.pane);
 
             LOGGER.severe("An unexpected error occured when parsing JSON files.");
             LOGGER.severe(Arrays.toString(error.getStackTrace()));

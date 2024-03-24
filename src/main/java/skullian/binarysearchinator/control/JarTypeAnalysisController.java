@@ -7,14 +7,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import skullian.binarysearchinator.MainApp;
-import skullian.binarysearchinator.control.old.ConfirmationHandler;
-import skullian.binarysearchinator.utility.jar.Extractor;
+import skullian.binarysearchinator.utility.jar.JarManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class JarAnalysisController implements Initializable {
+public class JarTypeAnalysisController implements Initializable {
     private static Logger LOGGER = MainApp.LOGGER;
     private ConfigConfirmationHandler confirmationHandler = new ConfigConfirmationHandler();
 
@@ -27,7 +26,7 @@ public class JarAnalysisController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Extractor.pane = borderPane;
+        JarManager.pane = borderPane;
         rotateAnimation(c1, true, 360, 5);
         rotateAnimation(c2, true, 270, 7);
 
