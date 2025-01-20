@@ -20,19 +20,19 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>21.0.2</version>
+            <version>24-headless+0-2024-12-02-101029</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics </artifactId>
-            <version>21.0.2</version>
+            <version>24-headless+0-2024-12-02-101029</version>
             <classifier>win</classifier>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>21.0.2</version>
+            <version>24-headless+0-2024-12-02-101029</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -98,7 +98,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
-            <version>20.0.2</version>
+            <version>24-headless+0-2024-12-02-101029</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
